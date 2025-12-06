@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Beginner-Friendly Web Development Internship Projects | Vertecz Solutions Blog</title>
+  <meta name="description" content="Discover the top 10 free online internships for students in 2025 that offer certificates, real tasks, and resume-building projects. Perfect for beginners who want virtual internship experience." />
+  <meta name="keywords" content="free online internship, virtual internship 2025, free internship with certificate, online internship for students, remote internship, internship from home" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph (for social sharing) -->
+  <meta property="og:title" content="Top 10 Free Online Internships for Students in 2025 (With Certificates)" />
+  <meta property="og:description" content="Explore beginner-friendly free online internships with certificates, real projects, and remote work flexibility." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://yourdomain.com/blog/free-online-internships-2025.html" />
+  <meta property="og:image" content="https://yourdomain.com/assets/images/internship-hero.jpg" />
+
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --card-bg: #ffffff;
+      --accent: #0b66ff;
+      --accent-soft: rgba(11, 102, 255, 0.08);
+      --text-main: #151515;
+      --text-muted: #555;
+      --border-subtle: #e2e2e5;
+      --radius-lg: 18px;
+      --radius-full: 999px;
+      --shadow-soft: 0 14px 35px rgba(15, 23, 42, 0.08);
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(245, 245, 247, 0.88);
+      border-bottom: 1px solid rgba(226, 226, 229, 0.8);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.25rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo-pill {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 20% 20%, #4f46e5, #0b66ff);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: #222;
+      text-decoration: none;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-cta {
+      padding: 0.45rem 0.95rem;
+      border-radius: var(--radius-full);
+      border: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: #111827;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.18);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.22);
+    }
+
+    /* Layout */
+    .page {
+      max-width: var(--max-width);
+      margin: 1.75rem auto 3rem;
+      padding: 0 1.25rem 4rem;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 1.3fr);
+      gap: 2.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* Article */
+    .article-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 1.75rem 1.75rem 2.25rem;
+      border: 1px solid rgba(226, 226, 229, 0.9);
+    }
+
+    .breadcrumb {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    .article-title {
+      font-size: clamp(1.8rem, 3vw, 2.2rem);
+      line-height: 1.2;
+      margin: 0.3rem 0 0.6rem;
+      letter-spacing: -0.02em;
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .article-hero {
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      max-height: 280px;
+    }
+
+    .article-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .article-content h2 {
+      font-size: 1.4rem;
+      margin-top: 1.6rem;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+
+    .article-content h3 {
+      font-size: 1.1rem;
+      margin-top: 1.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .article-content p {
+      margin: 0.4rem 0 0.7rem;
+      color: #222;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 1.25rem;
+      margin: 0.3rem 0 0.9rem;
+      color: #222;
+    }
+
+    .article-highlight {
+      border-left: 3px solid var(--accent);
+      padding-left: 0.8rem;
+      font-size: 0.95rem;
+      color: #111827;
+      background: #f3f4ff;
+      border-radius: 0 12px 12px 0;
+      margin: 1rem 0;
+    }
+
+    .cta-box {
+      margin-top: 2rem;
+      padding: 1.4rem 1.5rem;
+      border-radius: 18px;
+      background: #0b1120;
+      color: #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .cta-box strong {
+      font-size: 1.05rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 0.55rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: #f9fafb;
+      color: #111827;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #e5e7eb;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover {
+      opacity: 0.9;
+      text-decoration: none;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .sidebar-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.25rem 1.4rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+    }
+
+    .sidebar-card h4 {
+      margin: 0 0 0.45rem;
+      font-size: 1rem;
+    }
+
+    .sidebar-card p {
+      margin: 0 0 0.55rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.3rem;
+    }
+
+    .pill {
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: #f3f4f6;
+      font-size: 0.78rem;
+      color: #374151;
+    }
+
+    .sidebar-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.3rem 0 0;
+      font-size: 0.86rem;
+    }
+
+    .sidebar-list li + li {
+      margin-top: 0.35rem;
+    }
+
+    .sidebar-list a {
+      color: #111827;
+      text-decoration: none;
+    }
+
+    .sidebar-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid rgba(209, 213, 219, 0.8);
+      padding: 1.25rem 1.25rem 2rem;
+      font-size: 0.82rem;
+      color: #6b7280;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-links a {
+      color: #6b7280;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .article-title {
+        font-size: 1.6rem;
+      }
+      .article-content h2 {
+        font-size: 1.3rem;
+      }
+      .article-content h3 {
+        font-size: 1.05rem;
+      }
+      table {
+        font-size: 0.85rem;
+      }
+      th, td {
+        padding: 0.7rem 0.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0.75rem;
+      }
+      .article-title {
+        font-size: 1.35rem;
+        line-height: 1.3;
+      }
+      .article-content h2 {
+        font-size: 1.15rem;
+      }
+      .article-content h3 {
+        font-size: 0.95rem;
+      }
+      .article-content p {
+        font-size: 0.95rem;
+      }
+      table {
+        font-size: 0.8rem;
+        overflow-x: auto;
+        display: block;
+      }
+      th, td {
+        padding: 0.6rem 0.4rem;
+      }
+      .article-hero {
+        max-height: 200px;
+        margin-bottom: 1rem;
+      }
+      .cta-box {
+        padding: 1rem 1.2rem;
+        margin-top: 1.5rem;
+      }
+      .nav-inner {
+        padding: 0.5rem 0.75rem;
+      }
+      .footer {
+        padding: 1rem 0.75rem;
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+      <div class="nav-inner">
+      <div class="nav-left">
+        <div class="nav-logo-pill"></div>
+        <span>Vertecz Solutions</span>
+      </div>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#domains">Domains</a>
+        <a href="index.html">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <button class="nav-cta" onclick="window.location.href='../index.html#apply'">
+        Apply Now
+      </button>
+    </div>
+  </header>
+
+  <!-- PAGE -->
+  <main class="page">
+    <!-- ARTICLE -->
+    <article class="article-card">
+      <div class="breadcrumb">
+        <a href="/index.html">Home</a> › <a href="/blog/index.html">Blog</a> › Top 10 Free Online Internships for Students in 2025
+      </div>
+
+      <div class="badge">web-development Projects · 2025</div>
+      <h1 class="article-title">Beginner-Friendly Web Development Internship Projects for Your Resume</h1>
+
+      <div class="article-meta">
+        <span>📅 Updated: January 2025</span>
+        <span>⏱ 7–9 min read</span>
+        <span>🎓 Ideal for: Students & Freshers</span>
+      </div>
+
+      <div class="article-hero">
+        <!-- Replace src with your own image path -->
+        <img src="/assets/images/free-internships-2025.jpg" alt="Students doing free online internships from home" />
+      </div>
+
+      <div class="article-content">
+        
+  <p>
+    When you apply for your first web development internship, recruiters don’t expect years of experience.
+    What they <strong>do</strong> expect is a few clean, simple projects that prove you understand
+    HTML, CSS, and JavaScript basics.
+  </p>
+
+  <p>
+    The good news? You don’t need a “full-stack SaaS platform” to impress people. A handful of
+    well-structured, well-documented beginner projects can be enough to land you opportunities.
+  </p>
+
+  <div class="article-highlight">
+    <strong>Tip:</strong> One solid, finished project is better than ten half-done ones.
+    For each project, focus on clarity, responsiveness, and a neat README.
+  </div>
+
+  <h2>What Makes a Good Web Dev Internship Project?</h2>
+  <ul>
+    <li><strong>Clear purpose:</strong> The user should instantly understand what your site does.</li>
+    <li><strong>Responsive layout:</strong> Works on mobile, tablet, and desktop.</li>
+    <li><strong>Clean UI:</strong> Consistent colors, spacing, and typography.</li>
+    <li><strong>Deployed:</strong> Live on GitHub Pages, Netlify, or Vercel.</li>
+    <li><strong>Documented:</strong> README explains features and technologies used.</li>
+  </ul>
+
+  <h2>Project 1: Personal Portfolio Website</h2>
+  <p>
+    Your portfolio is often the first project recruiters click. It doesn’t have to be fancy. It just has to
+    clearly show who you are, what you’ve built, and how to contact you.
+  </p>
+  <ul>
+    <li>Sections: Hero, About, Skills, Projects, Contact</li>
+    <li>Use HTML for structure and CSS Grid/Flexbox for layout</li>
+    <li>Add smooth scrolling and hover effects with basic JavaScript</li>
+  </ul>
+  <p>
+    📌 <strong>Bonus:</strong> Host it using GitHub Pages and add the link to your resume and LinkedIn.
+  </p>
+
+  <h2>Project 2: Responsive Landing Page</h2>
+  <p>
+    Pick any idea — a fake SaaS tool, a coffee shop, an app — and design a single-page marketing site for it.
+  </p>
+  <ul>
+    <li>Hero section with main call-to-action button</li>
+    <li>Features, testimonials, pricing section</li>
+    <li>Mobile-first design with media queries</li>
+  </ul>
+
+  <h2>Project 3: Simple JavaScript Quiz App</h2>
+  <p>
+    A quiz app is perfect to showcase your JavaScript skills. It doesn’t require complex design but shows
+    you understand DOM manipulation and events.
+  </p>
+  <ul>
+    <li>Questions and options stored in an array</li>
+    <li>Score counter and final results screen</li>
+    <li>“Retake quiz” button with reset</li>
+  </ul>
+
+  <h2>Project 4: To-Do List with Local Storage</h2>
+  <p>
+    The classic to-do app is still a great learning project. The key is using <strong>localStorage</strong>
+    so tasks persist after refresh.
+  </p>
+
+  <h2>Project 5: Weather App Using Public API</h2>
+  <p>
+    This is often a favorite in internships. You’ll learn how to consume an API and update the UI based on responses.
+  </p>
+  <ul>
+    <li>Search by city name</li>
+    <li>Show temperature, conditions, and icon</li>
+    <li>Handle errors (invalid city, API issues)</li>
+  </ul>
+
+  <h2>How to Present These Projects to Recruiters</h2>
+  <ol>
+    <li>Create a GitHub repository for each project.</li>
+    <li>Write a clear README: what, why, how to run.</li>
+    <li>Add screenshots or GIFs of the UI.</li>
+    <li>Deploy live and include the URL.</li>
+    <li>Link everything in your portfolio site.</li>
+  </ol>
+
+  <h2>Where Vertecz Solutions Helps</h2>
+  <p>
+    In the <strong>Vertecz Solutions Web Development Internship</strong>, we guide you through projects like these
+    with weekly tasks, mentor reviews, and a final portfolio project you can proudly share.
+  </p>
+
+  <div class="cta-box">
+    <strong>Want guided web dev projects with a completion certificate?</strong>
+    <span>Join the Vertecz Solutions virtual web development internship and build your portfolio step by step.</span>
+    <div class="cta-actions">
+      <a class="btn-primary" href="../index.html#application">Apply for Web Dev Internship →</a>
+      <a class="btn-secondary" href="../internships.html">View All Domains</a>
+    </div>
+  </div>
+</div>
+
+
+        
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <h4>About Vertecz Solutions</h4>
+        <p>Task-based virtual internships with GitHub submissions, mentor reviews, real projects, and completion certificates.</p>
+        <div class="pill-list">
+          <span class="pill">Virtual</span>
+          <span class="pill">Certificate</span>
+          <span class="pill">GitHub Projects</span>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <h4>Popular Internship Tracks</h4>
+        <ul class="sidebar-list">
+          <li><a href="../internships.html">Web Development Internship</a></li>
+          <li><a href="../internships.html">Java Development Internship</a></li>
+          <li><a href="../internships.html">Python Programming Internship</a></li>
+          <li><a href="../internships.html">Data Science Internship</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card">
+        <h4>Related Articles</h4>
+        <ul class="sidebar-list">
+          <li><a href="/blog/web-dev-internship-projects.html">Beginner-Friendly Web Dev Internship Projects</a></li>
+          <li><a href="/blog/python-internship-projects.html">Top Python Projects for Internship Portfolios</a></li>
+          <li><a href="/blog/virtual-internship-mistakes.html">Mistakes to Avoid in Online Internships</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card">
+        <h4>Need Help Choosing a Track?</h4>
+        <p>Not sure if you should pick Web Dev, Java, or Data Science?</p>
+        <a class="btn-primary" href="../index.html#contact" style="justify-content:center; margin-top:0.5rem;">
+          Contact Us
+        </a>
+      </div>
+    </aside>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2025 Vertecz Solutions. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="../terms.html">Terms</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

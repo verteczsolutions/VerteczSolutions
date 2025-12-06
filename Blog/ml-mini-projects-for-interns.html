@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Machine Learning Mini Projects for Interns — Vertecz Solutions</title>
+  <meta name="description" content="Small ML project ideas with GitHub tips: classification exercises, simple pipelines, and model reporting." />
+  <style>
+    body{font-family:system-ui;color:#111;margin:0;background:#f7f7fb;line-height:1.6}
+    .container{max-width:900px;margin:2rem auto;padding:1rem}
+    article h1{font-size:2rem;margin-bottom:.5rem;color:#111}
+    article h2{font-size:1.5rem;margin-top:1.5rem;margin-bottom:.8rem;color:#222}
+    article h3{font-size:1.1rem;margin-top:1.2rem;margin-bottom:.6rem}
+    table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.95rem}
+    th,td{padding:1rem;text-align:left;border:1px solid #e5e5e5}
+    th{background:#f5f5f7;font-weight:700}
+    tr:nth-child(even){background:#fafafa}
+    .footer{padding:1.5rem;text-align:center;color:#666}
+    .tip-box{background:#e0e7ff;padding:1.2rem;border-radius:10px;border-left:4px solid #0b66ff;margin:1.5rem 0}
+    @media (max-width:768px){
+      .container{padding:1rem;margin:1.5rem auto}
+      article h1{font-size:1.6rem;margin-bottom:.3rem}
+      article h2{font-size:1.3rem;margin-top:1.2rem}
+      article h3{font-size:1rem}
+      table{font-size:0.85rem}
+      th,td{padding:.7rem .5rem}
+    }
+    @media (max-width:480px){
+      .container{padding:.75rem;margin:1rem auto}
+      article h1{font-size:1.35rem;line-height:1.3}
+      article h2{font-size:1.15rem;margin-top:1rem}
+      article h3{font-size:0.95rem}
+      p{font-size:0.95rem}
+      table{margin:1rem 0;overflow-x:auto;display:block;font-size:0.8rem}
+      th,td{padding:.6rem .4rem}
+      .tip-box{padding:.9rem;margin:1rem 0;font-size:0.9rem}
+      figure{margin:1rem 0}
+      figcaption{font-size:0.85rem}
+      .footer{padding:1rem .75rem;font-size:0.75rem}
+    }
+  </style>
+</head>
+<body>
+  <header style="background:#fff;padding:.75rem 1rem;box-shadow:0 6px 20px rgba(2,6,23,0.04)"><div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center"><div style="font-weight:800">Vertecz Solutions</div><nav><a href="../index.html">Home</a> | <a href="index.html">Blog</a></nav></div></header>
+  <main class="container">
+    <article>
+      <h1>Machine Learning Projects That Showcase AI Innovation in 2025</h1>
+      <p style="color:#555">From autonomous vehicles to humanoid robots, ML powers the next generation of technology. Here are bite-sized projects that demonstrate real-world AI skills and will impress any recruiter.</p>
+
+      <figure class="article-hero" style="margin:1.5rem 0;text-align:center">
+        <img src="/assets/images/ml-projects.jpg" alt="Machine learning projects" style="max-width:100%;border-radius:14px;box-shadow:0 6px 32px rgba(0,0,0,0.08)">
+        <figcaption style="color:#888;font-size:0.95rem;margin-top:0.5rem">ML projects power robots, self-driving cars, and AI assistants.</figcaption>
+      </figure>
+
+      <h2>Why ML Projects Matter Now</h2>
+      <ul>
+        <li><strong>Self-Driving Cars:</strong> Computer vision and sensor fusion projects demonstrate cutting-edge AI.</li>
+        <li><strong>Humanoid Robots:</strong> Motion prediction and object recognition help robots learn tasks.</li>
+        <li><strong>Generative AI:</strong> LLMs and diffusion models are redefining what's possible.</li>
+        <li><strong>Real-Time Decisions:</strong> Edge ML on IoT devices requires efficient models.</li>
+      </ul>
+
+      <h2>Beginner ML Project Ideas (1–2 Week Duration)</h2>
+      <ol>
+        <li><strong>Iris Flower Classification</strong>
+          <ul>
+            <li>Classic starter project using decision trees or SVM</li>
+            <li>Learn: training/test splits, accuracy metrics, confusion matrices</li>
+            <li>Dataset: scikit-learn built-in dataset</li>
+            <li>Deliverable: Jupyter notebook with clear visualizations</li>
+          </ul>
+        </li>
+        <li><strong>House Price Prediction (Regression)</strong>
+          <ul>
+            <li>Predict real estate prices using linear/polynomial regression</li>
+            <li>Learn: feature scaling, cross-validation, R² scores</li>
+            <li>Dataset: Boston Housing or Ames Housing</li>
+            <li>Bonus: Deploy as a simple web form</li>
+          </ul>
+        </li>
+        <li><strong>Sentiment Analysis (NLP)</strong>
+          <ul>
+            <li>Classify movie reviews or tweets as positive/negative</li>
+            <li>Learn: text preprocessing, TF-IDF vectorization, Naive Bayes</li>
+            <li>Dataset: IMDB or Twitter sentiment dataset</li>
+            <li>Deliverable: Interactive Flask app</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h2>Intermediate ML Projects (2–4 Weeks)</h2>
+      <ol>
+        <li><strong>Autonomous Vehicle Path Prediction</strong>
+          <ul>
+            <li>Use CARLA simulator data to predict next vehicle trajectory</li>
+            <li>Models: LSTM, CNN, or Transformer-based approaches</li>
+            <li>Metrics: MAE (mean absolute error) on path coordinates</li>
+          </ul>
+        </li>
+        <li><strong>Image Classification with CNNs</strong>
+          <ul>
+            <li>Build a CNN to classify objects (CIFAR-10, MNIST, or custom dataset)</li>
+            <li>Techniques: data augmentation, transfer learning (ResNet50, VGG16)</li>
+            <li>Deploy: Create a web app where users upload images</li>
+          </ul>
+        </li>
+        <li><strong>Anomaly Detection for IoT Sensors</strong>
+          <ul>
+            <li>Detect unusual patterns in time-series sensor data (flying car telemetry)</li>
+            <li>Models: Isolation Forest, Autoencoders, or Gaussian Mixture Models</li>
+            <li>Real-world use: Detect vehicle malfunctions before they happen</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h2>Advanced ML Projects (4–8 Weeks)</h2>
+      <ul>
+        <li><strong>Custom LLM Fine-Tuning:</strong> Fine-tune GPT-2 or Llama for domain-specific tasks</li>
+        <li><strong>Generative Model:</strong> Build a diffusion model or GAN to generate images</li>
+        <li><strong>Reinforcement Learning:</strong> Train an agent to play Atari games or control a simulated robot</li>
+        <li><strong>Multi-Modal Model:</strong> Combine text and image inputs (like CLIP) for search or classification</li>
+      </ul>
+
+      <h2>GitHub & Portfolio Best Practices</h2>
+      <div style="background:#f5f5f7;padding:1.2rem;border-radius:10px;margin:1rem 0">
+        <ul>
+          <li><strong>Repository structure:</strong> Keep data/, models/, notebooks/, and src/ organized</li>
+          <li><strong>README with impact:</strong> Start with a problem statement, link to a demo, and explain results</li>
+          <li><strong>Reproducibility:</strong> Include requirements.txt, setup instructions, and random seeds</li>
+          <li><strong>Show your work:</strong> Add Jupyter notebooks, visualizations, and ablation studies</li>
+          <li><strong>Demo video:</strong> A 1–2 minute video showing your model in action</li>
+        </ul>
+      </div>
+
+      <h2>Tools & Tech Stack</h2>
+      <table style="width:100%;margin:1.5rem 0;border-collapse:collapse;font-size:0.95rem">
+        <tr style="background:#f5f5f7">
+          <th style="padding:0.8rem;text-align:left;border:1px solid #ddd">Tool</th>
+          <th style="padding:0.8rem;text-align:left;border:1px solid #ddd">Use Case</th>
+        </tr>
+        <tr>
+          <td style="padding:0.8rem;border:1px solid #ddd"><strong>Scikit-learn</strong></td>
+          <td style="padding:0.8rem;border:1px solid #ddd">Classic ML (SVM, trees, clustering)</td>
+        </tr>
+        <tr style="background:#fafafa">
+          <td style="padding:0.8rem;border:1px solid #ddd"><strong>TensorFlow/Keras</strong></td>
+          <td style="padding:0.8rem;border:1px solid #ddd">Deep learning & neural networks</td>
+        </tr>
+        <tr>
+          <td style="padding:0.8rem;border:1px solid #ddd"><strong>PyTorch</strong></td>
+          <td style="padding:0.8rem;border:1px solid #ddd">Research & cutting-edge models</td>
+        </tr>
+        <tr style="background:#fafafa">
+          <td style="padding:0.8rem;border:1px solid #ddd"><strong>Hugging Face</strong></td>
+          <td style="padding:0.8rem;border:1px solid #ddd">NLP & transformer models</td>
+        </tr>
+        <tr>
+          <td style="padding:0.8rem;border:1px solid #ddd"><strong>MLflow</strong></td>
+          <td style="padding:0.8rem;border:1px solid #ddd">Experiment tracking & model registry</td>
+        </tr>
+      </table>
+
+      <h2>Real-World Impact Examples</h2>
+      <ul>
+        <li><strong>Tesla Autopilot:</strong> Vision models process camera feeds to predict road layouts and vehicle positions.</li>
+        <li><strong>Boston Dynamics Robots:</strong> RL and computer vision enable humanoid robots to learn and perform complex tasks.</li>
+        <li><strong>Flying Car Navigation:</strong> Reinforcement learning optimizes air routes considering wind, weather, and traffic.</li>
+      </ul>
+
+      <div style="margin-top:2rem;padding:1.2rem;background:linear-gradient(90deg,#e0e7ff,#fff);border-radius:12px;text-align:center">
+        <strong>Build ML projects that matter!</strong><br>
+        <a href="../index.html#application" style="display:inline-block;margin-top:0.7rem;padding:0.7rem 1.5rem;background:#0b66ff;color:#fff;border-radius:8px;text-decoration:none;font-weight:700">Start Your ML Internship Today</a>
+      </div>
+    </article>
+  </main>
+  <footer class="footer">© 2025 Vertecz Solutions. All rights reserved.</footer>
+</body>
+</html>
