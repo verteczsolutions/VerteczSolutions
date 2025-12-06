@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Internship Detail - Vertecz Solutions</title>
+  <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Match main site theme variables */
+    :root{--primary-color:#0b66ff;--dark-bg:#242424;--light-bg:#f5f7fb;--text-dark:#1a1a1a;--text-gray:#666;--border-color:#e5e5e7}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial;line-height:1.6;background:var(--light-bg);color:var(--text-dark);margin:0}
+    .hero{padding:3.5rem 2.5%;position:relative;overflow:hidden}
+    .hero-bg{position:absolute;right:-120px;top:-60px;width:520px;height:520px;background:radial-gradient(circle at 30% 30%, rgba(11,102,255,0.12), transparent 20%),linear-gradient(135deg,#dfefff,#f7fdff);filter:blur(30px);transform:rotate(25deg);border-radius:48%}
+    .container{max-width:1100px;margin:0 auto}
+    .card{background:#fff;padding:1.6rem;border-radius:14px;box-shadow:0 14px 40px rgba(2,6,23,0.06);border:1px solid var(--border-color)}
+    .hero-title{font-size:clamp(1.6rem,3vw,2.25rem);font-weight:900}
+    .icon-badge{width:72px;height:72px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,var(--primary-color),#6c4cff);color:white;font-size:32px;box-shadow:0 10px 30px rgba(11,102,255,0.12)}
+    .meta{display:flex;gap:1rem;align-items:center;margin-top:.75rem}
+    .meta .badge{background:linear-gradient(135deg,var(--primary-color),#0052cc);color:#fff;padding:.45rem .75rem;border-radius:999px;font-weight:700}
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:1.25rem;margin-top:1.25rem}
+    .curriculum-list{display:grid;gap:.75rem}
+    .curriculum-item{background:#fff;padding:.95rem;border-radius:10px;border:1px solid var(--border-color);box-shadow:0 8px 20px rgba(2,6,23,0.04);opacity:0;transform:translateY(16px)}
+    .curriculum-item.in-view{opacity:1;transform:translateY(0);transition:opacity .45s ease,transform .45s cubic-bezier(.2,.9,.2,1)}
+    .curriculum-item strong{display:block;margin-bottom:6px}
+    .apply-row{display:flex;gap:1rem;align-items:center;margin-top:1rem}
+    .apply-btn{background:linear-gradient(90deg,var(--primary-color),#6c4cff);color:#fff;padding:.7rem 1rem;border-radius:10px;border:none;cursor:pointer;font-weight:700}
+    .fade-in{animation:fadeIn .6s both}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    .quick-facts div{margin-bottom:.5rem;color:var(--text-gray)}
+    @media (max-width:960px){.grid{grid-template-columns:1fr}.hero-bg{display:none}}
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="hero-bg" aria-hidden></div>
+    <div class="container">
+      <div class="card fade-in" id="heroCard">
+        <div style="display:flex;align-items:center;gap:1rem">
+          <div id="icon" style="font-size:2.75rem"></div>
+          <div>
+            <div id="title" class="hero-title"></div>
+            <div id="sub" style="color:var(--muted);margin-top:.35rem"></div>
+          </div>
+        </div>
+        <div class="meta">
+          <div class="badge" id="duration"></div>
+          <div id="domainTag" style="color:var(--muted)"></div>
+        </div>
+
+        <div style="margin-top:1rem" id="desc"></div>
+
+        <div class="grid">
+          <div>
+            <h3 style="margin-top:1rem">Weekly Curriculum</h3>
+            <div id="curriculum" class="curriculum-list"></div>
+
+            <h3 style="margin-top:1rem">Learning Timeline</h3>
+            <div id="timeline" style="color:var(--muted);margin-top:.5rem"></div>
+
+            <h3 style="margin-top:1rem">Outcomes & Benefits</h3>
+            <div id="benefits" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;margin-top:.5rem"></div>
+
+            <div class="apply-row">
+              <button id="applyBtn" class="apply-btn">Apply For This Internship</button>
+              <button onclick="window.location.href='internships.html'" style="background:none;border:1px solid #e6eefc;padding:.5rem .85rem;border-radius:8px">Back to Internships</button>
+            </div>
+          </div>
+
+          <aside>
+            <div class="card fade-in" style="position:sticky;top:20px">
+              <h4 style="margin:0 0 .5rem 0">Quick Facts</h4>
+              <div style="color:var(--muted)" id="quickFacts"></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="internship-data.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const domainKey = params.get('domain');
+    const courseId = params.get('course');
+
+    const data = window.internshipData || {};
+    if(!domainKey || !courseId || !data[domainKey]){
+      document.getElementById('title').textContent = 'Internship not found';
+      document.getElementById('desc').textContent = 'Please go back and select a valid internship.';
+    } else {
+      const domain = data[domainKey];
+      const course = domain.courses.find(c=>c.id===courseId);
+      if(!course){ document.getElementById('title').textContent = 'Internship not found'; return; }
+
+      const iconEl = document.getElementById('icon');
+      iconEl.className = 'icon-badge';
+      iconEl.textContent = course.icon;
+      document.getElementById('title').textContent = course.name;
+      document.getElementById('sub').textContent = course.description;
+      document.getElementById('duration').textContent = course.duration;
+      document.getElementById('domainTag').textContent = domain.title;
+      document.getElementById('desc').textContent = course.description;
+
+      const curriculumEl = document.getElementById('curriculum'); curriculumEl.innerHTML='';
+      if(course.curriculum && course.curriculum.length){
+        course.curriculum.forEach((it, i)=>{ const e=document.createElement('div'); e.className='curriculum-item'; e.innerHTML=`<strong>Week ${it.week}</strong><div style="font-weight:700">${it.title}</div><div style="color:var(--muted)">${it.description}</div>`; curriculumEl.appendChild(e); setTimeout(()=>e.classList.add('in-view'), i*110); });
+      } else { curriculumEl.innerHTML = '<div style="color:var(--muted)">Curriculum details will be shared on enrollment.</div>' }
+
+      const timelineEl = document.getElementById('timeline'); timelineEl.innerHTML='';
+      if(course.timeline && course.timeline.length){ course.timeline.forEach((t,i)=> timelineEl.innerHTML += `<div><strong>Week ${i+1} – ${t.title}</strong><div style="color:var(--muted)">${t.description}</div></div>`); }
+      else timelineEl.innerHTML = '<div style="color:var(--muted)">Timeline will be provided later.</div>';
+
+      const benefitsEl = document.getElementById('benefits'); benefitsEl.innerHTML='';
+      if(course.benefits && course.benefits.length){ course.benefits.forEach(b=> benefitsEl.innerHTML += `<div style="background:#fff;border:1px solid #eef6ff;padding:.65rem;border-radius:8px"><div style="font-size:1.3rem">${b.icon}</div><div style="font-weight:700">${b.title}</div><div style="color:var(--muted)">${b.description}</div></div>`); }
+      else benefitsEl.innerHTML = '<div style="color:var(--muted)">Benefits will be shared on enrollment.</div>';
+
+      const quick = document.getElementById('quickFacts'); quick.innerHTML = `<div><strong>Domain:</strong> ${domain.title}</div><div><strong>Duration:</strong> ${course.duration}</div><div><strong>Mode:</strong> 100% Online</div><div><strong>Projects:</strong> 1+ real project</div>`;
+
+      document.getElementById('applyBtn').onclick = ()=>{ window.location.href='index.html#application'; };
+    }
+  </script>
+</body>
+</html>

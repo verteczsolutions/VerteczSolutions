@@ -1,0 +1,2880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Vertecz Solutions</title>
+
+<meta name="description" content="100% online virtual internship with weekly tasks, GitHub submissions, and free certification. Learn Web Development, Java, Python, Data Science, Machine Learning & more. Apply Now!">
+
+<meta name="keywords" content="virtual internship, online internship, free internship with certificate, web development internship, java internship, python internship, data science internship, ML internship, internship for students online, internship India">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <meta name="robots" content="index, follow"> -->
+<meta name="robots" content="noindex, nofollow">
+
+<meta property="og:title" content="Vertecz Solutions Virtual Internship Program">
+<meta property="og:description" content="Learn top tech skills with real projects and certification. 100% online.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yourdomain.com">
+<meta property="og:image" content="https://yourdomain.com/hero-image.jpg">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0b66ff;
+            --dark-bg: #242424;
+            --light-bg: #f5f5f7;
+            --text-dark: #1a1a1a;
+            --text-gray: #666;
+            --border-color: #e5e5e7;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            padding: 1rem 0;
+        }
+
+        .navbar-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2.5%;
+        }
+
+        .navbar-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), #0052cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 200ms ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .apply-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 999px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 200ms ease;
+            font-size: 0.95rem;
+        }
+
+        .apply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(11, 102, 255, 0.3);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            z-index: 101;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
+            transition: all 300ms ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(10px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-10px);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(11, 102, 255, 0.05) 0%, rgba(11, 102, 255, 0.02) 100%);
+            padding: 6rem 2.5% 4rem;
+            min-height: auto;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(11, 102, 255, 0.1);
+            color: var(--primary-color);
+            padding: 0.6rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            width: fit-content;
+        }
+
+        .hero-badge i {
+            font-size: 0.9rem;
+        }
+
+        .hero-h1 {
+            font-size: clamp(2.25rem, 5vw, 4rem);
+            line-height: 1.08;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin: 0;
+        }
+
+        .typed-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .typed-text {
+            color: var(--primary-color);
+            font-weight: 800;
+            min-width: 180px;
+            display: inline-block;
+        }
+
+        .caret {
+            width: 2px;
+            height: 1.05em;
+            background: rgba(0, 0, 0, 0.85);
+            display: inline-block;
+            animation: blinkCaret 700ms steps(1, end) infinite;
+        }
+
+        @keyframes blinkCaret {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        .hero-desc {
+            font-size: clamp(1.05rem, 1.2vw, 1.25rem);
+            color: var(--text-gray);
+            line-height: 1.6;
+            max-width: 640px;
+            margin: 0;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .primary-btn {
+            background: var(--dark-bg);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 999px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 200ms ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+        }
+
+        .secondary-btn {
+            background: white;
+            color: var(--primary-color);
+            padding: 0.9rem 2rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 999px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 200ms ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .secondary-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            display: block;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(11, 102, 255, 0.15);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 2.5%;
+        }
+
+        .section-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: white;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid var(--border-color);
+            text-align: center;
+            transition: all 300ms ease;
+            position: relative;
+        }
+
+        .step-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 12px 32px rgba(11, 102, 255, 0.1);
+            transform: translateY(-8px);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), #0052cc);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        .step-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .step-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Domains Section */
+        .domains {
+            background: linear-gradient(135deg, rgba(11, 102, 255, 0.05) 0%, rgba(11, 102, 255, 0.02) 100%);
+        }
+
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .domain-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            border: 2px solid var(--border-color);
+            transition: all 300ms ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            min-height: 400px;
+        }
+
+        .domain-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 16px 40px rgba(11, 102, 255, 0.12);
+            transform: translateY(-12px);
+        }
+
+        .domain-card-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .domain-icon-large {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .domain-card h3 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        .domain-card-desc {
+            color: var(--text-gray);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .domain-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .highlight-badge {
+            background: linear-gradient(135deg, rgba(11, 102, 255, 0.1) 0%, rgba(11, 102, 255, 0.05) 100%);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(11, 102, 255, 0.2);
+        }
+
+        .domain-btn {
+            background: linear-gradient(135deg, var(--primary-color), #0052cc);
+            color: white;
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 300ms ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(11, 102, 255, 0.2);
+            margin-top: auto;
+        }
+
+        .domain-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(11, 102, 255, 0.3);
+        }
+
+        .domain-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Program Structure */
+        .program {
+            background: white;
+        }
+
+        .program-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+            align-items: center;
+        }
+
+        .program-left ul {
+            list-style: none;
+        }
+
+        .program-left li {
+            color: var(--text-gray);
+            font-size: 1rem;
+            margin-bottom: 1.2rem;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .program-left li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .program-right {
+            background: linear-gradient(135deg, rgba(11, 102, 255, 0.05) 0%, rgba(11, 102, 255, 0.02) 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid var(--border-color);
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            margin-top: 0.4rem;
+            flex-shrink: 0;
+        }
+
+        .timeline-content h4 {
+            color: var(--text-dark);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Why Choose Us */
+        .why-us {
+            background: linear-gradient(135deg, rgba(11, 102, 255, 0.05) 0%, rgba(11, 102, 255, 0.02) 100%);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid var(--border-color);
+            text-align: center;
+            transition: all 300ms ease;
+        }
+
+        .benefit-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 12px 32px rgba(11, 102, 255, 0.1);
+            transform: translateY(-8px);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .benefit-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Application Section */
+        .application {
+            background: white;
+        }
+
+        .application-content {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .application-desc {
+            color: var(--text-gray);
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        .application-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .process-steps {
+            background: linear-gradient(135deg, rgba(11, 102, 255, 0.05) 0%, rgba(11, 102, 255, 0.02) 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+        }
+
+        .process-steps h4 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .process-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .process-item {
+            text-align: center;
+        }
+
+        .process-item-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 0.75rem;
+        }
+
+        .process-item p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Certificates Section */
+        .certificates {
+            background: linear-gradient(135deg, rgba(11, 102, 255, 0.05) 0%, rgba(11, 102, 255, 0.02) 100%);
+        }
+
+        .certificates-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+            align-items: center;
+        }
+
+        .certificates-left h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .certificates-left ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .certificates-left li {
+            color: var(--text-gray);
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .certificates-left li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .certificates-note {
+            background: rgba(11, 102, 255, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            border-radius: 8px;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-top: 1.5rem;
+        }
+
+        .certificates-right {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .cert-mockup {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 300ms ease;
+        }
+
+        .cert-mockup:hover {
+            box-shadow: 0 12px 32px rgba(11, 102, 255, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .cert-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .cert-mockup h4 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .cert-mockup p {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: white;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .faq-item {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 300ms ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary-color);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: white;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 200ms ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(11, 102, 255, 0.05);
+        }
+
+        .faq-toggle {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: transform 300ms ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            background: rgba(11, 102, 255, 0.02);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            animation: slideDown 300ms ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll Animation Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Scroll Animation Classes */
+        .scroll-animate {
+            opacity: 0;
+        }
+
+        .scroll-animate.in-view {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Section Title Animations */
+        .section-title {
+            opacity: 0;
+        }
+
+        section.in-view .section-title {
+            animation: fadeInUp 0.8s ease-out 0.1s forwards;
+        }
+
+        .section-subtitle {
+            opacity: 0;
+        }
+
+        section.in-view .section-subtitle {
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        /* Card Animations */
+        .steps-grid .step-card {
+            opacity: 0;
+        }
+
+        .steps-grid.in-view .step-card {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .steps-grid.in-view .step-card:nth-child(1) { animation-delay: 0.1s; }
+        .steps-grid.in-view .step-card:nth-child(2) { animation-delay: 0.2s; }
+        .steps-grid.in-view .step-card:nth-child(3) { animation-delay: 0.3s; }
+        .steps-grid.in-view .step-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .domains-grid .domain-card {
+            opacity: 0;
+        }
+
+        .domains-grid.in-view .domain-card {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .domains-grid.in-view .domain-card:nth-child(1) { animation-delay: 0.1s; }
+        .domains-grid.in-view .domain-card:nth-child(2) { animation-delay: 0.15s; }
+        .domains-grid.in-view .domain-card:nth-child(3) { animation-delay: 0.2s; }
+        .domains-grid.in-view .domain-card:nth-child(4) { animation-delay: 0.25s; }
+        .domains-grid.in-view .domain-card:nth-child(5) { animation-delay: 0.3s; }
+        .domains-grid.in-view .domain-card:nth-child(6) { animation-delay: 0.35s; }
+
+        .benefits-grid .benefit-card {
+            opacity: 0;
+        }
+
+        .benefits-grid.in-view .benefit-card {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .benefits-grid.in-view .benefit-card:nth-child(1) { animation-delay: 0.1s; }
+        .benefits-grid.in-view .benefit-card:nth-child(2) { animation-delay: 0.15s; }
+        .benefits-grid.in-view .benefit-card:nth-child(3) { animation-delay: 0.2s; }
+        .benefits-grid.in-view .benefit-card:nth-child(4) { animation-delay: 0.25s; }
+        .benefits-grid.in-view .benefit-card:nth-child(5) { animation-delay: 0.3s; }
+        .benefits-grid.in-view .benefit-card:nth-child(6) { animation-delay: 0.35s; }
+
+        .certificates-right .cert-mockup {
+            opacity: 0;
+        }
+
+        .certificates-right.in-view .cert-mockup {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .certificates-right.in-view .cert-mockup:nth-child(1) { animation-delay: 0.2s; }
+        .certificates-right.in-view .cert-mockup:nth-child(2) { animation-delay: 0.4s; }
+
+        /* Two-column layout animations */
+        .hero-left {
+            opacity: 0;
+        }
+
+        .hero.in-view .hero-left {
+            animation: fadeInLeft 0.9s ease-out 0.2s forwards;
+        }
+
+        .hero-right {
+            opacity: 0;
+        }
+
+        .hero.in-view .hero-right {
+            animation: fadeInRight 0.9s ease-out 0.3s forwards;
+        }
+
+        .program-left {
+            opacity: 0;
+        }
+
+        .program.in-view .program-left {
+            animation: fadeInLeft 0.9s ease-out 0.2s forwards;
+        }
+
+        .program-right {
+            opacity: 0;
+        }
+
+        .program.in-view .program-right {
+            animation: fadeInRight 0.9s ease-out 0.3s forwards;
+        }
+
+        .certificates-left {
+            opacity: 0;
+        }
+
+        .certificates.in-view .certificates-left {
+            animation: fadeInLeft 0.9s ease-out 0.2s forwards;
+        }
+
+        .certificates-right {
+            opacity: 0;
+        }
+
+        .certificates.in-view .certificates-right {
+            animation: fadeInRight 0.9s ease-out 0.3s forwards;
+        }
+
+        .contact-info {
+            opacity: 0;
+        }
+
+        .contact.in-view .contact-info {
+            animation: fadeInLeft 0.9s ease-out 0.2s forwards;
+        }
+
+        .contact-form {
+            opacity: 0;
+        }
+
+        .contact.in-view .contact-form {
+            animation: fadeInRight 0.9s ease-out 0.3s forwards;
+        }
+
+        /* FAQ Animations */
+        .faq-container .faq-item {
+            opacity: 0;
+        }
+
+        .faq-container.in-view .faq-item {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .faq-container.in-view .faq-item:nth-child(1) { animation-delay: 0.1s; }
+        .faq-container.in-view .faq-item:nth-child(2) { animation-delay: 0.15s; }
+        .faq-container.in-view .faq-item:nth-child(3) { animation-delay: 0.2s; }
+        .faq-container.in-view .faq-item:nth-child(4) { animation-delay: 0.25s; }
+        .faq-container.in-view .faq-item:nth-child(5) { animation-delay: 0.3s; }
+        .faq-container.in-view .faq-item:nth-child(6) { animation-delay: 0.35s; }
+
+        /* Process Steps Animation */
+        .process-list .process-item {
+            opacity: 0;
+        }
+
+        .process-steps.in-view .process-item {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .process-steps.in-view .process-item:nth-child(1) { animation-delay: 0.1s; }
+        .process-steps.in-view .process-item:nth-child(2) { animation-delay: 0.2s; }
+        .process-steps.in-view .process-item:nth-child(3) { animation-delay: 0.3s; }
+        .process-steps.in-view .process-item:nth-child(4) { animation-delay: 0.4s; }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, rgba(11, 102, 255, 0.05) 0%, rgba(11, 102, 255, 0.02) 100%);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .contact-info p {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .contact-item-icon {
+            font-size: 1.35rem;
+            color: var(--primary-color);
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item-content h4 {
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+            font-size: 1rem;
+        }
+
+        .contact-item-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 200ms ease;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(11, 102, 255, 0.1);
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.85rem 2rem;
+            border: none;
+            border-radius: 999px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            transition: all 200ms ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(11, 102, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 3rem 2.5% 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+
+        .footer-left {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-right {
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links button {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 200ms ease;
+        }
+
+        .footer-links button:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 200ms ease;
+            font-size: 1rem;
+        }
+
+        .social-icon:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 2rem 0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Modal Popup Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay[style*="display: flex"] {
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            padding: 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: slideUp 0.4s ease-out forwards;
+            overflow: hidden;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 200ms ease;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-background {
+            background: linear-gradient(135deg, rgba(200, 100, 255, 0.2) 0%, rgba(255, 150, 200, 0.2) 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300"><path d="M0,100 Q300,50 600,100 T1200,100 L1200,0 L0,0 Z" fill="%23E8C5F0" opacity="0.5"/></svg>');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+
+        .modal-background::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300"><path d="M0,200 Q300,250 600,200 T1200,200 L1200,300 L0,300 Z" fill="%23D8A7E8" opacity="0.4"/></svg>');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+
+        .modal-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .modal-header {
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 1rem;
+        }
+
+        .modal-header h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: var(--primary-color);
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        .modal-title {
+            font-size: clamp(1.8rem, 5vw, 3.5rem);
+            color: #ff1493;
+            font-weight: 900;
+            margin: 1.5rem 0;
+            letter-spacing: -0.02em;
+        }
+
+        .modal-description {
+            color: var(--text-gray);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .modal-button {
+            background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 300ms ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+        }
+
+        .modal-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(124, 58, 237, 0.4);
+        }
+
+        .modal-button:active {
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 600px) {
+            .modal-content {
+                width: 95%;
+                max-width: 100%;
+            }
+
+            .modal-background {
+                padding: 2rem 1.5rem;
+                min-height: 350px;
+            }
+
+            .modal-close {
+                width: 35px;
+                height: 35px;
+                font-size: 1.5rem;
+            }
+
+            .modal-title {
+                font-size: 2rem;
+                margin: 1rem 0;
+            }
+
+            .modal-button {
+                padding: 0.85rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1.5rem 2.5%;
+                gap: 1rem;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 3rem 0;
+            }
+
+            .hero-right {
+                order: -1;
+            }
+
+            .program-container {
+                grid-template-columns: 1fr;
+            }
+
+            .certificates-container {
+                grid-template-columns: 1fr;
+            }
+
+            .certificates-right {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .application-buttons {
+                flex-direction: column;
+            }
+
+            .primary-btn,
+            .secondary-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-right {
+                justify-content: center;
+            }
+
+            section {
+                padding: 3rem 2.5%;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero-desc {
+                font-size: 1rem;
+            }
+
+            .steps-grid,
+            .domains-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar-logo {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 2rem 2.5%;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .process-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== ENHANCED MOBILE OPTIMIZATIONS (4 Weeks to 4 Weeks) ===== */
+        
+        /* Mobile Navigation Improvements */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.75rem 0;
+                z-index: 100;
+            }
+
+            .navbar-container {
+                padding: 0 3%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: white;
+                max-height: calc(100vh - 60px);
+                overflow-y: auto;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+                padding: 1rem 2.5%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.75rem 1rem;
+                text-align: left;
+                border-radius: 8px;
+                transition: all 200ms ease;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                color: var(--text-dark);
+                text-decoration: none;
+            }
+
+            .nav-links a:hover,
+            .nav-links a:active,
+            .nav-links a:focus {
+                background: rgba(11, 102, 255, 0.05);
+                color: var(--primary-color);
+            }
+
+            .apply-btn {
+                width: 100%;
+                text-align: center;
+                min-height: 48px;
+                margin-top: 0.5rem;
+            }
+        }
+
+        /* Hero Section Mobile */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-left {
+                text-align: center;
+            }
+
+            .hero-h1 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                line-height: 1.3;
+            }
+
+            .typed-container {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            .hero-badge {
+                font-size: 0.85rem;
+                padding: 0.6rem 1rem;
+                display: inline-block;
+            }
+
+            .hero-desc {
+                font-size: 0.95rem;
+                line-height: 1.6;
+                margin: 1rem 0;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .primary-btn,
+            .secondary-btn {
+                width: 100%;
+                padding: 0.85rem 1.5rem;
+                font-size: 1rem;
+                min-height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .hero-image {
+                max-width: 100%;
+                height: auto;
+                margin-bottom: 1.5rem;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-h1 {
+                font-size: 1.3rem;
+            }
+
+            .hero-badge {
+                font-size: 0.75rem;
+                padding: 0.5rem 0.75rem;
+            }
+
+            .hero-desc {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Grid Cards Mobile */
+        @media (max-width: 768px) {
+            .steps-grid,
+            .domains-grid,
+            .benefits-grid,
+            .certificates-right {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .step-card,
+            .domain-card,
+            .benefit-card,
+            .cert-mockup {
+                padding: 1.5rem;
+                min-height: auto;
+            }
+
+            .domain-icon-large {
+                font-size: 2.5rem;
+            }
+
+            .step-number {
+                width: 45px;
+                height: 45px;
+                font-size: 1.25rem;
+                min-height: 45px;
+                min-width: 45px;
+            }
+
+            .domain-btn,
+            .primary-btn,
+            .secondary-btn {
+                min-height: 48px;
+                padding: 0.75rem 1.5rem;
+                font-size: 0.95rem;
+                width: 100%;
+            }
+        }
+
+        /* Form Mobile */
+        @media (max-width: 768px) {
+            .contact-content,
+            .program-container,
+            .certificates-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 0.85rem 1rem;
+                font-size: 16px;
+                min-height: 48px;
+                border-radius: 8px;
+            }
+
+            .form-group textarea {
+                font-size: 16px;
+            }
+
+            .submit-btn {
+                min-height: 48px;
+                padding: 0.85rem 1.5rem;
+                font-size: 1rem;
+                width: 100%;
+            }
+        }
+
+        /* Modal Mobile */
+        @media (max-width: 600px) {
+            .modal-content {
+                width: 95vw;
+                max-width: 95vw;
+            }
+
+            .modal-background {
+                padding: 1.5rem 1rem;
+                min-height: 350px;
+            }
+
+            .modal-close {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+                min-width: 40px;
+                min-height: 40px;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+                margin: 0.75rem 0;
+            }
+
+            .modal-header h2 {
+                font-size: 1.2rem;
+            }
+
+            .modal-button {
+                width: 100%;
+                padding: 0.75rem 1.5rem;
+                font-size: 0.95rem;
+                min-height: 48px;
+            }
+
+            .modal-description {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* FAQ Mobile */
+        @media (max-width: 768px) {
+            .faq-container {
+                max-width: 100%;
+                margin: 2rem 0 0;
+            }
+
+            .faq-question {
+                padding: 1.25rem;
+                font-size: 0.95rem;
+                min-height: 50px;
+                display: flex;
+                align-items: center;
+            }
+
+            .faq-answer {
+                padding: 1rem 1.25rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Section Spacing Mobile */
+        @media (max-width: 768px) {
+            section {
+                padding: 2.5rem 3%;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 2rem 3%;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        /* Footer Mobile */
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .footer-right {
+                justify-content: center;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .footer-links button {
+                font-size: 0.9rem;
+                min-height: 44px;
+                padding: 0.5rem;
+            }
+
+            .social-icons {
+                justify-content: center;
+                gap: 0.75rem;
+            }
+
+            .social-icon {
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
+                min-width: 44px;
+                min-height: 44px;
+            }
+        }
+
+        /* List Items Mobile */
+        @media (max-width: 768px) {
+            .program-left li,
+            .certificates-left li {
+                font-size: 0.95rem;
+                padding-left: 1.75rem;
+                margin-bottom: 1rem;
+            }
+
+            .contact-details {
+                gap: 1.25rem;
+            }
+
+            .contact-item {
+                gap: 0.75rem;
+            }
+
+            .contact-item-icon {
+                font-size: 1.2rem;
+                min-width: 24px;
+            }
+        }
+
+        /* Process Steps Mobile */
+        @media (max-width: 768px) {
+            .process-list {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .process-item-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                min-width: 40px;
+                min-height: 40px;
+            }
+
+            .process-item p {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Highlight Badges Mobile */
+        @media (max-width: 768px) {
+            .domain-highlights {
+                gap: 0.5rem;
+                flex-wrap: wrap;
+            }
+
+            .highlight-badge {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Hamburger Menu Styling */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 101;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
+            transition: all 300ms ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(10px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-10px);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* Accessibility & Touch Targets */
+        @media (hover: none) and (pointer: coarse) {
+            /* Mobile touch devices */
+            button,
+            .faq-question,
+            a,
+            input {
+                min-height: 48px;
+                padding: 0.75rem 1rem;
+            }
+
+            .nav-links a {
+                padding: 0.75rem 1rem;
+            }
+        }
+
+        /* Image Responsiveness */
+        @media (max-width: 768px) {
+            .hero-image {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+        }
+
+        /* Reduced Motion for Mobile */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Very Small Screens (< 360px) */
+        @media (max-width: 360px) {
+            .navbar-logo {
+                font-size: 0.9rem;
+            }
+
+            .hero-h1 {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .step-card,
+            .domain-card,
+            .benefit-card {
+                padding: 1.25rem;
+            }
+
+            section {
+                padding: 1.5rem 2.5%;
+            }
+
+            .primary-btn,
+            .secondary-btn,
+            .domain-btn,
+            .submit-btn {
+                font-size: 0.9rem;
+                padding: 0.65rem 1rem;
+                min-height: 44px;
+            }
+
+            .hero-badge {
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Tablet Landscape Optimizations */
+        @media (max-width: 1024px) and (orientation: landscape) {
+            section {
+                padding: 2rem 3%;
+            }
+
+            .hero-container {
+                gap: 1.5rem;
+            }
+
+            .hero-h1 {
+                font-size: 1.6rem;
+            }
+
+            .modal-background {
+                min-height: 300px;
+                padding: 1.5rem 1rem;
+            }
+        }
+
+        /* Input Field Mobile Optimization (prevent zoom on iOS) */
+        @media (max-width: 768px) {
+            input,
+            textarea,
+            select {
+                font-size: 16px !important;
+                line-height: 1.5;
+            }
+        }
+
+        /* Navigation Link Active State */
+        .nav-links a:focus-visible {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* Button Focus States for Accessibility */
+        button:focus-visible {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* Enhanced mobile visual polish */
+        @media (max-width: 768px) {
+            /* Elevated section cards for clearer separation */
+            section {
+                background: transparent;
+                padding: 1.75rem 3%;
+            }
+
+            .section-container {
+                background: rgba(255,255,255,0.85);
+                border-radius: 14px;
+                padding: 1rem;
+                box-shadow: 0 8px 28px rgba(10,10,30,0.06);
+                margin-bottom: 1.25rem;
+            }
+
+            /* Domains and benefits horizontal carousels */
+            .domains-grid, .benefits-grid {
+                display: flex;
+                flex-direction: row;
+                gap: 0.75rem;
+                overflow-x: auto;
+                padding-bottom: 6px;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .domains-grid .domain-card,
+            .benefits-grid .benefit-card {
+                min-width: 78%;
+                flex: 0 0 78%;
+                scroll-snap-align: start;
+                margin: 0;
+            }
+
+            /* Make domain cards slightly taller and centered */
+            .domain-card {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            /* Tighter footer + sticky spacing */
+            footer { padding: 2rem 2.5% 3.5rem; }
+
+            /* Mobile sticky apply bar (visible only on small screens) */
+            .mobile-apply-bar{ display:flex; gap:0.5rem; position:fixed; left:8px; right:8px; bottom:14px; z-index:1200; justify-content:space-between; align-items:center }
+            .mobile-apply-btn{ background:linear-gradient(135deg,var(--primary-color),#0052cc); color:#fff; padding:.85rem 1rem; border-radius:12px; border:none; font-weight:800; box-shadow:0 10px 30px rgba(11,102,255,0.14) }
+            .mobile-visit-btn{ background:rgba(255,255,255,0.95); padding:.6rem .8rem; border-radius:10px; border:1px solid rgba(0,0,0,0.06); font-weight:700 }
+
+            /* Subtle card style tweaks for compactness */
+            .step-card, .domain-card, .benefit-card { border-radius:12px; padding:1rem }
+
+            /* Reduce hero oversize to improve first fold */
+            .hero { padding:2.5rem 2.5% 1rem }
+            .hero-h1 { font-size:1.6rem }
+            .hero-desc{ display:block }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-apply-bar{ display:none }
+        }
+
+        /* mobile apply bar transitions */
+        .mobile-apply-bar{transition:transform 280ms cubic-bezier(.2,.8,.2,1),opacity 200ms ease}
+    </style>
+</head>
+<body>
+    <!-- Mobile Apply Bar -->
+    <div id="mobileApplyBar" class="mobile-apply-bar" aria-hidden="true">
+        <button class="mobile-apply-btn" onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSeq-LRrz75GjX78ifRu_jlkgWLetmizpxXF7JUhGcKTz9fQrA/viewform?usp=dialog'">Apply Now</button>
+        <button class="mobile-visit-btn" onclick="scrollToSection('domains')">Explore Domains</button>
+    </div>
+    <!-- Modal Popup -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-background">
+                <div class="modal-inner">
+                    <div class="modal-header">
+                        <h2>Vertecz Solutions Internship Program</h2>
+                    </div>
+                    <div class="modal-title">Now Live!!</div>
+                    <p class="modal-description">
+                        Join our latest internship batch and launch your career with real-world projects and professional guidance.
+                    </p>
+                    <button class="modal-button" onclick="scrollToSection('application')">
+                        Apply Now <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo" onclick="scrollToSection('home')">
+                <i class="fas fa-rocket"></i> VerteczSolutions
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a onclick="scrollToSection('home')">Home</a>
+                <a onclick="scrollToSection('how-it-works')">How It Works</a>
+                <a onclick="window.location.href='internships.html'">Domains</a>
+                <a onclick="window.location.href='Blog/index.html'">Blog</a>
+                <a onclick="scrollToSection('application')">Apply</a>
+                <a onclick="scrollToSection('faq')">FAQ</a>
+                <a onclick="scrollToSection('contact')">Contact</a>
+                <button class="apply-btn" onclick="scrollToSection('application')">Apply Now</button>
+            </div>
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="section-container">
+            <div class="hero-container">
+                <div class="hero-left">
+                    <div class="hero-badge">
+                        <i class="fas fa-check-circle"></i>
+                        Virtual Internship • 100% Online • Task-Based Learning
+                    </div>
+                    <h1 class="hero-h1">
+                        Launch your career with a virtual internship in
+                        <div class="typed-container">
+                            <span class="typed-text" id="typedText">Web Development</span>
+                            <span class="caret"></span>
+                        </div>
+                    </h1>
+                    <p class="hero-desc">
+                        Join our structured virtual internship program where you receive weekly tasks by email, submit your work via Google Forms, and earn a verified certificate + experience letter on successful completion.
+                    </p>
+                    <div class="hero-cta">
+                        <button class="primary-btn" onclick="scrollToSection('application')">
+                            <i class="fas fa-arrow-right"></i> Apply for Internship
+                        </button>
+                        <button class="secondary-btn" onclick="scrollToSection('domains')">
+                            <i class="fas fa-th"></i> View Domains
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <img src="hero.png" alt="Virtual Internship" class="hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="section-container">
+            <h2 class="section-title">How the Virtual Internship Works</h2>
+            <p class="section-subtitle">A simple, structured 4-step process to launch your career</p>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Apply Online</h3>
+                    <p>Fill out the application form with your details and preferred domain. We review your profile and get back to you within 48 hours.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Receive Offer Letter</h3>
+                    <p>If selected, you'll receive an offer letter by email with your internship dates, domain details, and onboarding instructions.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Weekly Tasks via Email</h3>
+                    <p>You get structured weekly tasks and resources directly in your inbox. Learn at your own pace with clear guidelines and milestones.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Submit & Get Certified</h3>
+                    <p>Share your work using our Google Forms. Upon successful completion, receive your certificate and experience letter by email.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internship Domains -->
+    <section class="domains" id="domains">
+            <div class="section-container">
+            <div style="display:flex;align-items:center;gap:1rem;justify-content:space-between;flex-wrap:wrap;">
+                <div>
+                    <h2 class="section-title">Explore Our Internship Programs</h2>
+                    <p class="section-subtitle">Choose your path and master in-demand skills</p>
+                </div>
+                <div>
+                    <button class="secondary-btn" onclick="window.location.href='internships.html'">Explore All Internships</button>
+                </div>
+            </div>
+            <div class="domains-grid">
+                <div class="domain-card">
+                    <div class="domain-card-header">
+                        <div class="domain-icon-large">💻</div>
+                        <h3>Software Development</h3>
+                    </div>
+                    <p class="domain-card-desc">Master the art of building robust software applications with industry best practices.</p>
+                    <div class="domain-highlights">
+                        <span class="highlight-badge">OOP Concepts</span>
+                        <span class="highlight-badge">Design Patterns</span>
+                        <span class="highlight-badge">Real Projects</span>
+                    </div>
+                    <button class="domain-btn" onclick="window.location.href='internships.html?domain=software-development'">
+                        Explore <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="domain-card">
+                    <div class="domain-card-header">
+                        <div class="domain-icon-large">🌐</div>
+                        <h3>Web Development</h3>
+                    </div>
+                    <p class="domain-card-desc">Build stunning, responsive websites and web applications with modern technologies.</p>
+                    <div class="domain-highlights">
+                        <span class="highlight-badge">Frontend</span>
+                        <span class="highlight-badge">Responsive Design</span>
+                        <span class="highlight-badge">Web Standards</span>
+                    </div>
+                    <button class="domain-btn" onclick="window.location.href='internships.html?domain=web-development'">
+                        Explore <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="domain-card">
+                    <div class="domain-card-header">
+                        <div class="domain-icon-large">📊</div>
+                        <h3>Data Science</h3>
+                    </div>
+                    <p class="domain-card-desc">Transform raw data into actionable insights with advanced analytics and visualization.</p>
+                    <div class="domain-highlights">
+                        <span class="highlight-badge">Data Analysis</span>
+                        <span class="highlight-badge">Visualization</span>
+                        <span class="highlight-badge">Statistics</span>
+                    </div>
+                    <button class="domain-btn" onclick="window.location.href='internships.html?domain=data-science'">
+                        Explore <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="domain-card">
+                    <div class="domain-card-header">
+                        <div class="domain-icon-large">🤖</div>
+                        <h3>Machine Learning</h3>
+                    </div>
+                    <p class="domain-card-desc">Develop AI-powered solutions using cutting-edge machine learning algorithms.</p>
+                    <div class="domain-highlights">
+                        <span class="highlight-badge">ML Models</span>
+                        <span class="highlight-badge">Real Datasets</span>
+                        <span class="highlight-badge">AI Applications</span>
+                    </div>
+                    <button class="domain-btn" onclick="window.location.href='internships.html?domain=machine-learning'">
+                        Explore <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Structure -->
+    <section class="program" id="program">
+        <div class="section-container">
+            <h2 class="section-title">Program Structure & Duration</h2>
+            <p class="section-subtitle">Fully virtual, task-based learning designed for your success</p>
+            <div class="program-container">
+                <div class="program-left">
+                    <ul>
+                        <li><strong>Duration:</strong> 4 weeks (flexible based on your pace and domain)</li>
+                        <li><strong>Weekly Tasks:</strong> Structured assignments sent directly to your email inbox</li>
+                        <li><strong>Submission Method:</strong> All work submitted via Google Forms for easy tracking</li>
+                        <li><strong>Learning Style:</strong> Self-paced with clear milestones and deadlines</li>
+                        <li><strong>Eligibility:</strong> Students</li>
+                        <li><strong>Support:</strong> Access to documentation and guidelines for each task</li>
+                    </ul>
+                </div>
+                <div class="program-right">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Week 1 – Fundamentals & Setup</h4>
+                            <p>Introduction to domain, environment setup, and foundational concepts</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Week 2 – Core Concepts & Assignments</h4>
+                            <p>Deep dive into key topics with hands-on coding exercises</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Week 3 – Mini Project / Applied Task</h4>
+                            <p>Real-world application combining multiple concepts learned</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Week 4 – Final Project & Evaluation</h4>
+                            <p>Capstone project showcasing your skills and portfolio-ready work</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us">
+        <div class="section-container">
+            <h2 class="section-title">Why VerteczSolutions Internships?</h2>
+            <p class="section-subtitle">Join thousands of students who've launched their careers with us</p>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌍</div>
+                    <h3>100% Flexible & Online</h3>
+                    <p>Complete your internship from anywhere at your own pace. No fixed timings or location constraints. Learn when it suits you best.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏆</div>
+                    <h3>Certificate & Experience Letter</h3>
+                    <p>Earn a verified Certificate of Completion and an Internship Experience Letter mentioning your domain, duration, and achievements.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📚</div>
+                    <h3>Beginner-Friendly & Comprehensive</h3>
+                    <p>No prior experience needed. We start from fundamentals and gradually build your skills with clear explanations and hands-on practice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Section -->
+    <section class="application" id="application">
+        <div class="section-container">
+            <h2 class="section-title">Apply for the Virtual Internship</h2>
+            <p class="section-subtitle">Open applications for all domains. Join the next batch!</p>
+            <div class="application-content">
+                <p class="application-desc">
+                    Ready to launch your career? Fill out our application form below. Applications are reviewed within 48 hours. If selected, you'll receive an offer letter via email with your internship start date and all details.
+                </p>
+                <div class="application-buttons">
+                    <button class="primary-btn" onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSeq-LRrz75GjX78ifRu_jlkgWLetmizpxXF7JUhGcKTz9fQrA/viewform?usp=dialog'">
+                        <i class="fas fa-edit"></i> Apply Now
+                    </button>
+                    <button class="secondary-btn" onclick="openForm('https://forms.gle/your-task-submission-form')">
+                        <i class="fas fa-upload"></i> View Task Submission Form
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates & Offer Letters -->
+    <section class="certificates">
+        <div class="section-container">
+            <h2 class="section-title">Certificates & Offer Letters</h2>
+            <p class="section-subtitle">Earn recognized credentials upon successful completion</p>
+            <div class="certificates-container">
+                <div class="certificates-left">
+                    <h3>What You'll Receive</h3>
+                    <ul>
+                        <li><strong>Certificate of Completion:</strong> A professional PDF certificate recognizing your successful completion of the internship program in your chosen domain.</li>
+                        <li><strong>Experience Letter:</strong> A detailed letter mentioning your domain, internship duration, key projects completed, and high-level work summary.</li>
+                        <li><strong>Portfolio Projects:</strong> All your completed projects and assignments ready to showcase to employers.</li>
+                    </ul>
+                    <div class="certificates-note">
+                        <strong>Note:</strong> This is a training-oriented virtual internship focused on skill development. It's not a full-time employment opportunity but provides valuable experience and credentials for your career growth.
+                    </div>
+                </div>
+                <div class="certificates-right">
+                    <div class="cert-mockup">
+                        <div class="cert-icon">📜</div>
+                        <h4>Certificate of Completion</h4>
+                        <p><strong>Vertecz Solutions Internship</strong><br>Certified in Web Development<br><strong>John Doe</strong><br>Duration: 4 Weeks<br>Grade: Excellent</p>
+                    </div>
+                    <div class="cert-mockup">
+                        <div class="cert-icon">📄</div>
+                        <h4>Experience Letter</h4>
+                        <p><strong>To Whom It May Concern,</strong><br>This is to certify that John Doe has successfully completed a 4-week virtual internship in Web Development...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="section-container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Got questions? We've got answers</p>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Is this internship paid or unpaid?</span>
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        This is an unpaid training-focused virtual internship designed to help you build skills and gain practical experience. The value is in the knowledge, portfolio projects, certificate, and experience letter you receive, which significantly boost your career prospects.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How is the internship conducted?</span>
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        The internship is 100% virtual and task-based. You'll work from home at your own pace. Weekly tasks are sent to your email inbox, and you submit your work through Google Forms. There are no live classes or fixed meeting times, giving you complete flexibility.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How will I receive tasks?</span>
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        Every week, you'll receive an email with your tasks, resources, guidelines, and deadlines. The tasks are clearly structured with learning objectives and expected deliverables. You can work on them at your own pace within the given timeframe.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do I submit my work?</span>
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        All submissions are done through Google Forms. Each task will have a dedicated form where you can upload your files, share code repositories, or provide links to your projects. This makes tracking and evaluation seamless and transparent.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What do I need to participate?</span>
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        You need a computer/laptop, stable internet connection, and basic knowledge depending on the domain (for beginners, we provide foundational resources). No prior professional experience is required. A GitHub account and code editor are helpful for programming domains.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Will I receive a certificate?</span>
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        Yes! Upon successful completion of all tasks and the final project, you'll receive a Certificate of Completion and an Internship Experience Letter via email. Both are professional documents you can add to your resume and LinkedIn profile.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-container">
+            <h2 class="section-title">Have Questions?</h2>
+            <p class="section-subtitle">Reach out to us for any queries about the internship program</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>We're here to help! Whether you have questions about the application process, program details, or anything else, feel free to contact us. We typically respond within 24 hours.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-item-content">
+                                <h4>Email</h4>
+                                <p>verteczsolutions@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="contact-item-content">
+                                <h4>LinkedIn</h4>
+                                <p>VerteczSolutions</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-item-content">
+                                <h4>Location</h4>
+                                <p>India (Virtual Office)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form onsubmit="handleContactSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Your message here..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                © 2025 Vertecz Solutions. All rights reserved.
+            </div>
+            <div class="footer-right">
+                <div class="footer-links">
+                    <button onclick="alert('Terms of Use - Coming Soon')">Terms of Use</button>
+                    <button onclick="alert('Privacy Policy - Coming Soon')">Privacy Policy</button>
+                </div>
+                <div class="social-icons">
+                    <button class="social-icon" onclick="alert('LinkedIn - Coming Soon')">
+                        <i class="fab fa-linkedin"></i>
+                    </button>
+                    <button class="social-icon" onclick="alert('Instagram - Coming Soon')">
+                        <i class="fab fa-instagram"></i>
+                    </button>
+                    <button class="social-icon" onclick="alert('Twitter - Coming Soon')">
+                        <i class="fab fa-twitter"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            Made with <span style="color: #ff6b6b;">❤</span> for students and career switchers
+        </div>
+    </footer>
+
+    <script>
+        // Modal Functions
+        function closeModal() {
+            const modal = document.getElementById('modalOverlay');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Show modal on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                const modal = document.getElementById('modalOverlay');
+                if (modal) {
+                    modal.style.display = 'flex';
+                }
+            }, 300);
+        });
+
+        // Close modal when clicking outside the modal content
+        document.addEventListener('click', function(e) {
+            const modal = document.getElementById('modalOverlay');
+            if (modal && e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Typing Effect
+        const domains = ['Web Development', 'Java', 'Python', 'Data Science', 'Machine Learning', 'Deep Learning'];
+        let currentDomainIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+        const typedTextElement = document.getElementById('typedText');
+        const typingSpeed = 100;
+        const deletingSpeed = 50;
+        const delayBetweenDomains = 2000;
+
+        function typeEffect() {
+            const currentDomain = domains[currentDomainIndex];
+            
+            if (!isDeleting) {
+                if (currentCharIndex < currentDomain.length) {
+                    typedTextElement.textContent = currentDomain.substring(0, currentCharIndex + 1);
+                    currentCharIndex++;
+                    setTimeout(typeEffect, typingSpeed);
+                } else {
+                    isDeleting = true;
+                    setTimeout(typeEffect, delayBetweenDomains);
+                }
+            } else {
+                if (currentCharIndex > 0) {
+                    typedTextElement.textContent = currentDomain.substring(0, currentCharIndex - 1);
+                    currentCharIndex--;
+                    setTimeout(typeEffect, deletingSpeed);
+                } else {
+                    isDeleting = false;
+                    currentDomainIndex = (currentDomainIndex + 1) % domains.length;
+                    setTimeout(typeEffect, 500);
+                }
+            }
+        }
+
+        typeEffect();
+
+        // Smooth Scroll
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                closeMenu();
+                // Close modal if it's open
+                closeModal();
+            }
+        }
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.getElementById('hamburger');
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.getElementById('hamburger');
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+
+        // FAQ Toggle
+        function toggleFAQ(button) {
+            const faqItem = button.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Toggle current FAQ
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // Contact Form
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            alert(`Thank you, ${name}! Your message has been received. We'll get back to you at ${email} soon.`);
+            event.target.reset();
+        }
+
+        // Open External Forms
+        function openForm(url) {
+            alert('Note: Replace the URL with your actual Google Form link.\n\nForm URL: ' + url);
+            // Uncomment the line below to actually open the form
+            // window.open(url, '_blank');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navbar = document.querySelector('.navbar');
+            const hamburger = document.getElementById('hamburger');
+            if (!navbar.contains(event.target) && !hamburger.contains(event.target)) {
+                closeMenu();
+            }
+        });
+
+        // Optional: show mobile apply bar when on small screens
+        function updateMobileApplyBar(){
+            const bar = document.getElementById('mobileApplyBar');
+            if(!bar) return;
+            if(window.innerWidth <= 768){
+                bar.setAttribute('aria-hidden','false');
+                bar.style.display = 'flex';
+            } else {
+                bar.setAttribute('aria-hidden','true');
+                bar.style.display = 'none';
+            }
+        }
+
+        window.addEventListener('resize', updateMobileApplyBar);
+        document.addEventListener('DOMContentLoaded', updateMobileApplyBar);
+
+        // Auto-hide mobile apply bar on scroll down, show on scroll up
+        (function(){
+            let lastY = window.scrollY || 0;
+            let ticking = false;
+            const bar = document.getElementById('mobileApplyBar');
+            if(!bar) return;
+            function onScroll(){
+                const y = window.scrollY || 0;
+                if(Math.abs(y - lastY) < 10) { ticking = false; return; }
+                if(y > lastY && y > 100){ // scrolling down
+                    bar.style.transform = 'translateY(120%)';
+                    bar.style.opacity = '0';
+                } else { // scrolling up
+                    bar.style.transform = 'translateY(0)';
+                    bar.style.opacity = '1';
+                }
+                lastY = y;
+                ticking = false;
+            }
+            window.addEventListener('scroll', ()=>{
+                if(!ticking){ window.requestAnimationFrame(onScroll); ticking = true; }
+            }, {passive:true});
+        })();
+
+        // Scroll Animation Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const scrollObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add in-view class to main sections
+                    entry.target.classList.add('in-view');
+                    
+                    // Also add in-view to grid containers
+                    const grids = entry.target.querySelectorAll('.steps-grid, .domains-grid, .benefits-grid, .certificates-right, .faq-container, .process-steps');
+                    grids.forEach(grid => {
+                        grid.classList.add('in-view');
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            scrollObserver.observe(section);
+        });
+    </script>
+</body>
+</html>

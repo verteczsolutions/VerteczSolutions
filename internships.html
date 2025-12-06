@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Internship Programs - Vertecz Solutions</title>
+  <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root{--primary-color:#0b66ff;--accent:#6c4cff;--muted:#64748b;--bg:#f7f8fb;--dark-bg:#242424;--light-bg:#f5f5f7;--text-dark:#1a1a1a;--text-gray:#666;--border-color:#e5e5e7}
+    html,body{height:100%;scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell',sans-serif;background:var(--bg);color:var(--text-dark);margin:0;overflow-x:hidden;line-height:1.6}
+    .container{max-width:1200px;margin:0 auto;padding:2.5%}
+
+    /* Navbar */
+    .navbar{background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);padding:.85rem 0;box-shadow:0 2px 8px rgba(0,0,0,0.08);position:sticky;top:0;z-index:40}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0 2.5%}
+    .nav-brand{font-weight:800;cursor:pointer;background:linear-gradient(135deg,var(--primary-color),#0052cc);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.5px}
+    .nav-links a{margin-left:1rem;color:rgba(15,23,42,0.8);text-decoration:none;font-weight:600}
+
+    /* Hero */
+    .hero{padding:3rem 0 1.25rem;text-align:center;position:relative;overflow:visible}
+    .bg-blob{position:absolute;right:-120px;top:-80px;width:560px;height:560px;background:radial-gradient(circle at 25% 25%, rgba(108,76,255,0.18), transparent 18%), radial-gradient(circle at 70% 70%, rgba(11,102,255,0.08), transparent 24%);filter:blur(32px);transform:rotate(12deg);border-radius:42%}
+    .bg-blob{animation:floatBlob 8s ease-in-out infinite}
+    @keyframes floatBlob{0%{transform:translateY(0) rotate(12deg)}50%{transform:translateY(-10px) rotate(8deg)}100%{transform:translateY(0) rotate(12deg)}}
+    .title{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;letter-spacing:-0.02em;margin-bottom:.25rem}
+    .subtitle{color:var(--muted);margin-top:.5rem}
+
+    /* Search */
+    .search-bar{display:flex;gap:.75rem;justify-content:center;margin:1.25rem 0;flex-wrap:wrap}
+    .search-bar input{padding:.85rem 1rem;border:0;border-radius:12px;width:520px;max-width:76%;box-shadow:0 10px 30px rgba(11,102,255,0.06);background:linear-gradient(180deg,#fff,#fbfdff);outline:none;font-size:0.97rem;font-family:inherit}
+    .search-bar .apply-btn{background:linear-gradient(135deg,var(--primary-color),#0052cc);color:#fff;padding:.7rem 1.1rem;border-radius:12px;border:none;cursor:pointer;font-weight:700;box-shadow:0 10px 30px rgba(11,102,255,0.12);transition:all .3s ease}
+    .search-bar .apply-btn:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(11,102,255,0.2)}
+
+    /* Grid */
+    .courses-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-top:1.5rem;align-items:stretch}
+
+    /* Card */
+    .course-card{background:linear-gradient(135deg,rgba(100,50,255,0.08),rgba(100,100,255,0.04));padding:1.25rem;border-radius:16px;border:2px solid var(--border-color);cursor:pointer;box-shadow:0 10px 30px rgba(2,6,23,0.04);transform:translateY(22px) scale(.995);opacity:0;will-change:transform,opacity;transition:all .3s ease;position:relative;overflow:hidden}
+    .course-card::before{content:'';position:absolute;top:-50%;right:-50%;width:300px;height:300px;background:linear-gradient(135deg,var(--primary-color),transparent);border-radius:50%;opacity:0.1;transition:all .3s ease}
+    .course-card.in-view{opacity:1;transform:translateY(0) scale(1);transition:transform .6s cubic-bezier(.2,.9,.2,1),opacity .45s ease}
+    .course-card:hover{transform:translateY(-12px) scale(1.02);border-color:var(--primary-color);box-shadow:0 16px 40px rgba(11,102,255,0.15)}
+    .course-card:hover::before{top:-25%;right:-25%}
+    .course-card svg{transition:transform .4s ease}
+    .course-card:hover svg{transform:scale(1.06) rotate(-4deg)}
+    .course-icon{font-size:2.4rem;margin-bottom:.5rem;display:inline-block}
+    .course-title{font-weight:800;margin:.45rem 0;font-size:1.05rem}
+    .course-desc{color:var(--muted);margin-bottom:.85rem;font-size:0.95rem}
+    .course-meta{display:flex;justify-content:space-between;align-items:center;margin-top:.5rem;color:var(--muted)}
+    .domain-pill{background:linear-gradient(90deg,var(--primary),var(--accent));color:#0d0c0c;padding:.28rem .6rem;border-radius:999px;font-weight:700;font-size:.8rem}
+
+    /* Curriculum blocks */
+    .curriculum-grid,.benefits-grid{margin-top:1rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+
+    /* accessible focus */
+    .course-card:focus{outline:3px solid rgba(11,102,255,0.12);outline-offset:4px}
+
+    /* Detail panel */
+    #detailPanel{background:#fff;border-radius:16px;padding:0;margin-top:2rem;animation:fadeInUp .4s ease-out}
+    #detailCard{background:linear-gradient(135deg,#fff,#fbfdff);border:2px solid var(--border-color);border-radius:16px;padding:2.5rem;box-shadow:0 16px 40px rgba(11,102,255,0.1);position:relative;overflow:hidden}
+    #detailCard::before{content:'';position:absolute;top:-50%;right:-50%;width:300px;height:300px;background:linear-gradient(135deg,var(--primary-color),transparent);border-radius:50%;opacity:0.08}
+    #closeDetail{position:sticky;top:0;right:0;background:rgba(255,255,255,0.85);border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:1.5rem;color:var(--muted);transition:all .2s ease;display:flex;align-items:center;justify-content:center;float:right;margin-bottom:1rem}
+    #closeDetail:hover{background:#fff;transform:rotate(90deg)}
+    #detailContent{position:relative;z-index:1}
+    .detail-header{display:flex;gap:1.25rem;align-items:flex-start;flex-wrap:wrap}
+    .detail-left{flex:1;min-width:280px}
+    .detail-right{width:320px;max-width:38%;min-width:220px}
+    .detail-title{font-size:1.5rem;font-weight:900;margin-bottom:.5rem;letter-spacing:-.02em;color:var(--text-dark)}
+    .detail-meta{color:var(--text-gray);margin-bottom:.75rem;display:flex;gap:.5rem;align-items:center}
+    .detail-meta strong{color:var(--primary-color);font-weight:700}
+    .detail-desc{color:var(--text-gray);margin-top:.75rem;line-height:1.7}
+    .detail-key-box{background:linear-gradient(135deg,var(--primary-color),#0052cc);color:#fff;padding:1.25rem;border-radius:14px;font-weight:800;margin-bottom:1rem;font-size:1.05rem}
+    .detail-facts{background:#fff;border:2px solid var(--border-color);padding:1.5rem;border-radius:12px;margin-bottom:1rem}
+    .detail-fact{margin-bottom:.75rem}
+    .detail-fact strong{display:block;margin-bottom:.25rem;color:var(--text-dark)}
+    .detail-fact span{color:var(--text-gray)}
+    .detail-fact:last-child{margin-bottom:0}
+    .detail-benefits{margin-top:1rem}
+    .detail-benefits h4{font-weight:800;margin-bottom:.75rem;color:var(--text-dark)}
+    .detail-benefits ul{margin:0 0 0 1rem;padding:0;list-style:none}
+    .detail-benefits li{color:var(--text-gray);margin-bottom:.5rem;padding-left:1rem;position:relative}
+    .detail-benefits li::before{content:'▸';position:absolute;left:0;color:var(--primary-color);font-weight:bold}
+    .curriculum-item-inline{background:#fff;border:2px solid var(--border-color);padding:1.5rem;border-radius:12px;margin-bottom:.75rem;transition:all .3s ease;opacity:0;transform:translateY(12px)}
+    .curriculum-item-inline.visible{opacity:1;transform:translateY(0)}
+    .curriculum-item-inline:hover{border-color:var(--primary-color);box-shadow:0 12px 32px rgba(11,102,255,0.1)}
+    .curriculum-item-title{font-weight:800;margin-bottom:.35rem;color:var(--text-dark)}
+    .curriculum-item-desc{font-size:.95rem;color:var(--text-gray)}
+
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+
+    /* Section visibility toggle */
+    .courses-section{transition:opacity .3s ease}
+    .courses-section.hidden{display:none}
+    #detailPanel{transition:opacity .3s ease}
+    #detailPanel.hidden{display:none}
+
+    /* Apply and Back button styles */
+    .btn-apply{background:linear-gradient(135deg,var(--primary-color),#0052cc);color:#fff;padding:1rem 2rem;border-radius:12px;border:none;cursor:pointer;font-weight:700;font-size:1rem;display:inline-flex;align-items:center;gap:.75rem;transition:all .3s ease;box-shadow:0 10px 30px rgba(11,102,255,0.12)}
+    .btn-apply:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(11,102,255,0.2)}
+    .btn-back{background:none;border:none;color:var(--primary-color);cursor:pointer;font-weight:700;font-size:1rem;display:flex;align-items:center;gap:.5rem;transition:all .2s ease;padding:.5rem 0}
+    .btn-back:hover{transform:translateX(-4px)}
+
+    @media (max-width: 700px) {
+      .search-bar input{width:100%;max-width:100%}
+      .bg-blob{display:none}
+      .detail-right{width:100%;max-width:100%;min-width:auto}
+      .detail-header{flex-direction:column}
+      #closeDetail{float:none;margin-bottom:.75rem}
+
+      /* Compact courses grid: two cards per row on small screens */
+      .courses-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:0.75rem;
+      }
+
+      /* Make cards more compact */
+      .course-card{
+        padding:0.85rem;
+        border-radius:12px;
+      }
+
+      /* Reduce title size and clamp long descriptions to two lines for preview */
+      .course-title{font-size:0.98rem}
+      .course-desc{
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--muted);
+        font-size: 0.92rem;
+        margin-top: 0.25rem;
+      }
+
+      /* Meta smaller */
+      .course-meta{font-size:0.88rem}
+    }
+
+    /* Very small screens fall back to single column */
+    @media (max-width: 420px) {
+      .courses-grid{grid-template-columns:1fr}
+      /* Keep clamp but allow slightly larger type on very small screens */
+      .course-desc{
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size:0.95rem;
+        color:var(--muted);
+        margin-top:0.35rem;
+      }
+      .course-card{padding:1rem}
+    }
+
+    /* Mobile detail panel improvements */
+    @media (max-width: 768px) {
+      #detailCard{
+        padding:1.5rem;
+      }
+
+      .detail-header{
+        flex-direction:column;
+        gap:1.5rem;
+      }
+
+      .detail-left{
+        flex:1;
+        min-width:auto;
+      }
+
+      .detail-right{
+        width:100%;
+        max-width:100%;
+        min-width:auto;
+      }
+
+      .detail-title{
+        font-size:1.3rem;
+      }
+
+      .detail-meta{
+        font-size:0.9rem;
+        flex-wrap:wrap;
+      }
+
+      .detail-facts{
+        padding:1.25rem;
+      }
+
+      .detail-fact strong{
+        font-size:0.95rem;
+      }
+
+      .detail-fact span{
+        font-size:0.9rem;
+      }
+
+      .detail-benefits h4{
+        font-size:1rem;
+      }
+
+      .detail-benefits li{
+        font-size:0.93rem;
+      }
+
+      .curriculum-item-inline{
+        padding:1.25rem;
+        margin-bottom:0.65rem;
+      }
+
+      .curriculum-item-title{
+        font-size:0.98rem;
+      }
+
+      .curriculum-item-desc{
+        font-size:0.9rem;
+      }
+
+      h4{
+        font-size:1.1rem !important;
+      }
+
+      .detail-key-box{
+        font-size:1rem;
+        padding:1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #detailCard{
+        padding:1.25rem;
+      }
+
+      .detail-title{
+        font-size:1.15rem;
+      }
+
+      .detail-desc{
+        font-size:0.93rem;
+      }
+
+      .curriculum-item-inline{
+        padding:1rem;
+      }
+
+      .curriculum-item-title{
+        font-size:0.92rem;
+      }
+
+      .detail-facts{
+        padding:1rem;
+      }
+
+      .btn-apply{
+        width:100%;
+        padding:0.85rem 1.5rem;
+        font-size:0.95rem;
+      }
+
+      .btn-back{
+        font-size:0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div style="font-weight:800;cursor:pointer" onclick="window.location.href='index.html'"> <i class="fas fa-rocket"></i> VerteczSolutions</div>
+      <div>
+        <a style="margin-right:1rem;cursor:pointer" onclick="window.location.href='index.html'">Home</a>
+        <a style="margin-right:1rem;cursor:pointer" onclick="window.location.href='index.html#application'">Apply</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <header class="hero">
+      <div class="bg-blob" aria-hidden="true"></div>
+      <h1 class="title">Available Internship Tracks</h1>
+      <p style="color:var(--muted);margin-top:.5rem">Browse and pick a specialization — click any box to view weekly plan, duration, outcomes and apply.</p>
+    </header>
+
+    <div class="search-bar">
+      <input id="searchInput" placeholder="Search internships (e.g., Java, Frontend, Data Analysis)" />
+      <button class="apply-btn" onclick="window.location.href='index.html#application'">Apply Now</button>
+    </div>
+
+    <div class="courses-section">
+      <div id="resultInfo" style="text-align:center;margin-top:.5rem;color:var(--muted)"></div>
+      <div id="coursesGrid" class="courses-grid"></div>
+    </div>
+
+    <!-- Inline detail panel (hidden until a card is clicked) -->
+    <div id="detailPanel" class="hidden">
+      <div class="container">
+        <button class="btn-back" id="backBtn" style="margin-bottom:1.5rem"><i class="fas fa-arrow-left"></i> Back to Courses</button>
+        <div id="detailCard">
+          <div id="detailContent"></div>
+          <div style="margin-top:2rem;padding-top:2rem;border-top:2px solid var(--border-color);display:flex;gap:1rem;flex-wrap:wrap">
+            <button class="btn-apply" onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSeq-LRrz75GjX78ifRu_jlkgWLetmizpxXF7JUhGcKTz9fQrA/viewform?usp=dialog'">
+              <i class="fas fa-paper-plane"></i> Apply Now
+            </button>
+            <button class="btn-apply" style="background:linear-gradient(135deg,var(--text-gray),#999)" onclick="document.querySelector('.btn-back').click()">
+              <i class="fas fa-arrow-left"></i> Back
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Behavior toggle (optional) -->
+    <div style="text-align:center;margin-top:2rem;padding:1rem;background:rgba(11,102,255,0.04);border-radius:12px;border:1px solid rgba(11,102,255,0.1)">
+      <label style="font-size:.9rem;color:var(--muted);cursor:pointer">
+        <input type="checkbox" id="useRedirect" style="margin-right:.5rem;cursor:pointer"> Use separate detail pages (redirect mode)
+      </label>
+    </div>
+  </main>
+
+  <script src="internship-data.js"></script>
+  <script>
+    // Use shared data from internship-data.js (window.internshipData)
+    const data = window.internshipData || {};
+    const internships = [];
+    Object.keys(data).forEach(domainKey => {
+      const domain = data[domainKey];
+      domain.courses.forEach(c => internships.push(Object.assign({}, c, { domain: domainKey, domainTitle: domain.title, domainIcon: domain.icon })));
+    });
+
+    const coursesGrid = document.getElementById('coursesGrid');
+    const searchInput = document.getElementById('searchInput');
+
+    // Helpers: normalize different data shapes (strings or objects) and escape HTML
+    function escapeHtml(str){
+      if(!str && str !== 0) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function normalizeItems(arr){
+      if(!Array.isArray(arr)) return [];
+      return arr.map(it => {
+        if(typeof it === 'string') return { title: it, desc: '' };
+        if(typeof it === 'object' && it !== null){
+          return {
+            title: it.title || it.name || it.week || it.heading || '',
+            desc: it.desc || it.description || it.detail || it.text || ''
+          };
+        }
+        return { title: String(it), desc: '' };
+      });
+    }
+
+    function normalizeTimeline(arr){
+      if(!Array.isArray(arr)) return [];
+      return arr.map((t, i) => {
+        if(typeof t === 'string') return { week: '', title: t, desc: '' };
+        if(typeof t === 'object' && t !== null){
+          return {
+            week: t.week || t.label || t.title || '',
+            title: t.title || t.week || t.label || '',
+            desc: t.desc || t.description || t.detail || ''
+          };
+        }
+        return { week: '', title: String(t), desc: '' };
+      });
+    }
+
+    function normalizeBenefits(arr){
+      if(!Array.isArray(arr)) return [];
+      return arr.map(b => {
+        if(typeof b === 'string') return b;
+        if(typeof b === 'object' && b !== null) return b.title || b.name || b.text || b.description || JSON.stringify(b);
+        return String(b);
+      });
+    }
+
+    function renderList(filter, domainFilter){
+      coursesGrid.innerHTML = '';
+      const q = (filter||'').toLowerCase();
+
+      // choose list by domainFilter or text query
+      let list = internships.filter(it => {
+        if(domainFilter){
+          return it.domain === domainFilter;
+        }
+        if(!q) return true;
+        return it.name.toLowerCase().includes(q) || (it.description||'').toLowerCase().includes(q) || it.domainTitle.toLowerCase().includes(q);
+      });
+
+      // update result info / header
+      const resultInfo = document.getElementById('resultInfo');
+      if(domainFilter && window.internshipData && window.internshipData[domainFilter]){
+        const d = window.internshipData[domainFilter];
+        resultInfo.innerHTML = `${d.icon} <strong style="font-weight:800;color:var(--primary)">${d.title}</strong> — ${d.description}`;
+      } else if(q){
+        resultInfo.innerHTML = `${list.length} result${list.length!==1?'s':''} for "<strong>${filter}</strong>"`;
+      } else {
+        resultInfo.innerHTML = `${internships.length} internships available`;
+      }
+
+      list.forEach((item, idx) => {
+          const div = document.createElement('div');
+          div.className = 'course-card';
+          div.tabIndex = 0;
+          div.setAttribute('role', 'button');
+          // small SVG thumbnail with domain color + icon for visual interest
+          const thumb = `
+            <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="border-radius:12px;margin-bottom:6px;">
+              <defs>
+                <linearGradient id="g${idx}" x1="0" x2="1">
+                  <stop offset="0" stop-color="#6c4cff" />
+                  <stop offset="1" stop-color="#ff6b9d" />
+                </linearGradient>
+              </defs>
+              
+              <text x="50%" y="52%" dominant-baseline="middle" text-anchor="middle" font-size="34" fill="white">${item.icon}</text>
+            </svg>
+
+          `;
+
+          div.innerHTML = `
+            <div style="display:flex;flex-direction:column;height:100%">
+              <div style="display:flex;align-items:center;gap:10px">
+                <div>${thumb}</div>
+                <div style="flex:1">
+                  <div class="course-title">${item.name}</div>
+                  <div class="course-desc">${item.description}</div>
+                </div>
+              </div>
+              <div class="course-meta">
+                <div class="domain-pill">${item.domainTitle}</div>
+                <div style="font-weight:700">${item.duration}</div>
+              </div>
+            </div>
+          `;
+          // Show inline detail panel or redirect based on toggle
+          const showDetail = () => {
+            if (document.getElementById('useRedirect').checked) {
+              window.location.href = `internship-detail.html?domain=${encodeURIComponent(item.domain)}&course=${encodeURIComponent(item.id)}`;
+            } else {
+              renderDetail(item.domain, item.id);
+            }
+          };
+          div.onclick = showDetail;
+          div.onkeydown = (ev) => { if(ev.key === 'Enter' || ev.key === ' ') showDetail(); };
+          coursesGrid.appendChild(div);
+          // staggered reveal animation via class
+          setTimeout(()=>{ div.classList.add('in-view'); }, 90 * idx);
+        });
+
+      if(list.length === 0){
+        coursesGrid.innerHTML = `<div style="grid-column:1/-1;padding:2rem;text-align:center;color:var(--muted)">No internships found. Try a different search or go back to the <a href="index.html">homepage</a>.</div>`;
+      }
+    }
+
+    let activeDomainFilter = null;
+    searchInput.addEventListener('input', e=> renderList(e.target.value, activeDomainFilter));
+
+    // Prefilter by domain if query param passed
+    const params = new URLSearchParams(window.location.search);
+    const preDomain = params.get('domain');
+    if(preDomain){
+      // show only the preselected domain
+      activeDomainFilter = preDomain;
+      renderList('', preDomain);
+      // adjust search placeholder to indicate filter
+      const domainData = window.internshipData && window.internshipData[preDomain];
+      if(domainData){ document.getElementById('searchInput').placeholder = `Search within ${domainData.title} (or type to broaden)` }
+    } else {
+      renderList();
+    }
+
+    // Inline detail renderer with enhanced styling matching domain-detail.html
+    function renderDetail(domainKey, courseId){
+      const panel = document.getElementById('detailPanel');
+      const content = document.getElementById('detailContent');
+      const domain = window.internshipData && window.internshipData[domainKey];
+      if(!domain) return;
+
+      // find the course by id (coerce to string to avoid type mismatch)
+      const course = (domain.courses || []).find(c => String(c.id) === String(courseId))
+        || internships.find(i => i.domain === domainKey && String(i.id) === String(courseId))
+        || {};
+
+      // Normalize arrays into predictable shapes
+      const rawCurr = (course.curriculum && course.curriculum.length) ? course.curriculum : (domain.curriculum || []);
+      const curriculum = normalizeItems(rawCurr);
+
+      const rawTimeline = (course.timeline && course.timeline.length) ? course.timeline : (domain.timeline || []);
+      const timeline = normalizeTimeline(rawTimeline);
+
+      const rawBenefits = (course.benefits && course.benefits.length) ? course.benefits : (domain.benefits || []);
+      let benefits = normalizeBenefits(rawBenefits);
+      // remove unwanted generic items
+      const removeSet = new Set(['community support','comprehensive curriculum']);
+      benefits = benefits.filter(b => !removeSet.has(String(b).trim().toLowerCase()));
+
+      // override displayed duration as requested
+      const displayDuration = '4 weeks';
+
+      // build HTML safely using escapeHtml
+      let html = `
+        <div class="detail-header">
+          <div class="detail-left">
+            <div class="detail-title">${escapeHtml(course.name || 'Internship')}</div>
+            <div class="detail-meta">${domain.icon} <strong>${escapeHtml(domain.title)}</strong> • ${escapeHtml(course.duration || '')}</div>
+            <p class="detail-desc">${escapeHtml(course.description || domain.description || '')}</p>
+
+            <h4 style="margin-top:1.5rem;margin-bottom:.75rem;font-weight:800;color:var(--text-dark)">Curriculum Overview</h4>
+            <div style="display:flex;flex-direction:column;gap:.75rem">`;
+
+      if(curriculum.length === 0){
+        html += `<div style="color:var(--muted)">No curriculum available for this internship.</div>`;
+      } else {
+        curriculum.forEach((it) => {
+          html += `<div class="curriculum-item-inline">
+                    <div class="curriculum-item-title">${escapeHtml(it.title || '')}</div>
+                    <div class="curriculum-item-desc">${escapeHtml(it.desc || '')}</div>
+                  </div>`;
+        });
+      }
+
+      html += `</div>`; // close curriculum list
+
+      if(timeline && timeline.length){
+        html += `<h4 style="margin-top:1.5rem;margin-bottom:.75rem;font-weight:800;color:var(--text-dark)">Learning Timeline</h4>
+                 <div style="display:flex;flex-direction:column;gap:.75rem">`;
+        timeline.forEach((t, i) => {
+          html += `<div style="display:flex;gap:1rem;align-items:flex-start">
+                    <div style="width:36px;height:36px;background:linear-gradient(135deg,var(--primary-color),#0052cc);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;font-size:.9rem">${i+1}</div>
+                    <div>
+                      <strong style="color:var(--text-dark)">${escapeHtml(t.week || t.title || '')}</strong>
+                      <div style="color:var(--text-gray);font-size:.95rem">${escapeHtml(t.desc || '')}</div>
+                    </div>
+                  </div>`;
+        });
+        html += `</div>`;
+      }
+
+      html += `</div>`; // close detail-left
+
+      // right column: key details & benefits
+      html += `<div class="detail-right">
+               <div class="detail-key-box">Key Details</div>
+               <div class="detail-facts">
+                   <div class="detail-fact"><strong>Duration</strong> <span>${escapeHtml(displayDuration)}</span></div>
+                 <div class="detail-fact"><strong>Level</strong> <span>${escapeHtml(course.level||domain.level||'Beginner')}</span></div>
+                 <div class="detail-fact"><strong>Task Submission</strong> <span>${escapeHtml(course.seats||domain.seats||'GitHub Repository (Public)')}</span></div>
+               </div>`;
+
+      if(benefits && benefits.length){
+        html += `<div class="detail-benefits">
+                  <h4>Benefits</h4>
+                  <ul>`;
+        benefits.forEach(b => { html += `<li>${escapeHtml(b)}</li>`; });
+        html += `</ul></div>`;
+      } else {
+        html += `<div class="detail-benefits" style="color:var(--muted)">No benefits listed for this internship.</div>`;
+      }
+
+      html += `</div>`; // close detail-right
+      html += `</div>`; // close detail-header
+
+      content.innerHTML = html;
+
+      // Hide courses section and show detail panel full-page
+      document.querySelector('.courses-section').classList.add('hidden');
+      panel.classList.remove('hidden');
+
+      // entrance animation on the detail card
+      const detailCard = document.getElementById('detailCard');
+      detailCard.style.transform = 'translateY(40px)';
+      detailCard.style.opacity = '0';
+      setTimeout(()=>{ detailCard.style.transition = 'transform .45s cubic-bezier(.2,.9,.2,1),opacity .32s ease'; detailCard.style.transform = 'translateY(0)'; detailCard.style.opacity = '1'; }, 40);
+
+      // Wire back button to show courses again
+      const backBtn = document.getElementById('backBtn');
+      backBtn.onclick = ()=>{
+        panel.classList.add('hidden');
+        document.querySelector('.courses-section').classList.remove('hidden');
+        window.scrollTo({top: 0, behavior:'smooth'});
+      };
+
+      // animate curriculum items within panel
+      const items = content.querySelectorAll('.curriculum-item-inline');
+      items.forEach((it, i) => { setTimeout(()=>{ it.classList.add('visible'); }, 80 * i); });
+
+      // scroll to detail
+      setTimeout(()=>{ panel.scrollIntoView({behavior:'smooth',block:'start'}); }, 100);
+    }
+
+    // Wire behavior toggle
+    document.getElementById('useRedirect').addEventListener('change', () => {
+      // update card click behavior immediately
+      renderList('', activeDomainFilter);
+    });
+
+  </script>
+</body>
+</html>
