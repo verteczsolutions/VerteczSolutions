@@ -1,68 +1,392 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8" />
   <title>How to Submit GitHub Projects as Internship Assignments — Vertecz Solutions</title>
-  <meta name="description" content="Step-by-step guide to pushing code, creating clean repos, and sharing GitHub links for internship submissions." />
+  <meta name="description" content="A comprehensive, step-by-step guide for interns on preparing GitHub repositories, writing effective READMEs, managing branches, and sharing clean submission links with mentors." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <meta name="referrer" content="no-referrer">
   <style>
-    body{font-family:system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;color:#111;margin:0;background:#f7f7fb;line-height:1.6}
-    .container{max-width:900px;margin:2rem auto;padding:1rem}
-    article h1{font-size:2rem;margin-bottom:.5rem;color:#111}
-    article h2{font-size:1.5rem;margin-top:1.5rem;margin-bottom:.8rem;color:#222}
-    article h3{font-size:1.1rem;margin-top:1.2rem;margin-bottom:.6rem}
-    .article-hero img{width:100%;border-radius:12px}
-    .footer{padding:1.5rem;text-align:center;color:#666}
-    .tip-box{background:#e0e7ff;padding:1.2rem;border-radius:10px;border-left:4px solid #0b66ff;margin:1.5rem 0}
-    @media (max-width:768px){
-      .container{padding:1rem;margin:1.5rem auto}
-      article h1{font-size:1.6rem;margin-bottom:.3rem}
-      article h2{font-size:1.3rem;margin-top:1.2rem}
-      article h3{font-size:1rem}
+    :root {
+      --primary: #0b66ff;
+      --primary-glow: rgba(11, 102, 255, 0.3);
+      --bg: #0b0f1a;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --text-main: #f8fafc;
+      --text-dim: #94a3b8;
+      --code-bg: rgba(30, 41, 59, 0.8); /* Darker background for code */
+      --code-text: #e2e8f0;
+      --radius: 20px;
     }
-    @media (max-width:480px){
-      .container{padding:.75rem;margin:1rem auto}
-      article h1{font-size:1.35rem;line-height:1.3}
-      article h2{font-size:1.15rem;margin-top:1rem}
-      article h3{font-size:0.95rem}
-      p{font-size:0.95rem}
-      .article-hero{margin:1rem 0}
-      .tip-box{padding:.9rem;margin:1rem 0;font-size:0.9rem}
-      .footer{padding:1rem .75rem;font-size:0.75rem}
+
+    * { box-sizing: border-box; transition: all 0.2s ease; }
+
+    body {
+      margin: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      background-image: radial-gradient(at 0% 0%, rgba(11, 102, 255, 0.1) 0px, transparent 50%);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(16px);
+      background: rgba(11, 15, 26, 0.85);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 0.8rem 0;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-logo-pill {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #0b66ff, #4f46e5);
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    .nav-links a { color: var(--text-dim); text-decoration: none; margin: 0 1rem; font-weight: 500; font-size: 0.9rem; }
+    .nav-links a:hover { color: var(--primary); }
+
+    .nav-cta {
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--primary);
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    /* Layout */
+    .page {
+      max-width: 1000px; /* Slightly narrower for focused content */
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Article Styling */
+    .article-card {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      padding: 3rem;
+    }
+
+    .breadcrumb { font-size: 0.8rem; color: var(--text-dim); margin-bottom: 1.5rem; }
+    .breadcrumb a { color: var(--text-dim); text-decoration: none; }
+    
+    .badge {
+      background: rgba(11, 102, 255, 0.15);
+      color: var(--primary);
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .article-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      margin: 0.3rem 0 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .article-meta {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .article-hero img {
+      width: 100%;
+      border-radius: 16px;
+      margin-bottom: 2.5rem;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .article-content h2 { 
+      color: #fff; 
+      font-size: 1.8rem; 
+      margin-top: 3rem; 
+      border-left: 4px solid var(--primary); 
+      padding-left: 1rem;
+      line-height: 1.3;
+    }
+    .article-content h3 { color: #fff; font-size: 1.2rem; margin-top: 2rem; }
+    .article-content p, .article-content li { color: #cbd5e1; font-size: 1.05rem; }
+    .article-content ul, .article-content ol { padding-left: 1.5rem; }
+
+    /* Code Blocks */
+    pre {
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: 1.2rem 1.5rem;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(30, 41, 59, 0.5);
+      padding: 0.2em 0.4em;
+      border-radius: 4px;
+      color: var(--code-text);
+      font-size: 0.95em;
+    }
+
+    .tip-box {
+      background: linear-gradient(90deg, rgba(11, 102, 255, 0.1), transparent);
+      border-left: 4px solid var(--primary);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 12px 12px 0;
+      color: var(--text-main);
+    }
+    .tip-box strong { color: #fff; }
+
+    /* Images within content */
+    .content-image {
+      width: 100%;
+      max-width: 600px;
+      display: block;
+      margin: 2rem auto;
+      border-radius: 12px;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+
+    /* Call to Action */
+    .cta-box {
+      background: linear-gradient(135deg, #0b1120 0%, #0b66ff 300%);
+      border: 1px solid var(--primary);
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-top: 1.5rem;
+      box-shadow: 0 10px 20px var(--primary-glow);
+    }
+
+    @media (max-width: 768px) {
+      .article-card { padding: 1.5rem; }
+      .nav-links { display: none; }
+      .article-title { font-size: 2rem; margin-bottom: 1rem; }
+      .article-content h2 { font-size: 1.5rem; margin-top: 2.5rem; }
+      .article-content p, .article-content li { font-size: 1rem; }
+      pre { padding: 1rem; font-size: 0.85rem; }
     }
   </style>
 </head>
 <body>
-  <header style="background:#fff;padding:.75rem 1rem;box-shadow:0 6px 20px rgba(2,6,23,0.04)">
-    <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center">
-      <div style="font-weight:800">Vertecz Solutions</div>
-      <nav><a href="../index.html">Home</a> | <a href="index.html">Blog</a></nav>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="nav-left">
+        
+        <span style="font-weight: 800; color: #fff;">Vertecz Solutions</span>
+      </div>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#domains">Domains</a>
+        <a href="index.html">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <button class="nav-cta" onclick="window.location.href='../index.html#apply'">Apply Now</button>
     </div>
   </header>
 
-  <main class="container">
-    <article>
-      <h1>How to Submit GitHub Projects as Internship Assignments</h1>
-      <p style="color:#555">A concise workflow for preparing repositories, writing READMEs, and sharing clean links with mentors.</p>
-      <div class="article-hero" style="margin-top:1rem;margin-bottom:1rem">
-        <img src="/assets/images/github-submission.jpg" alt="GitHub submission"/>
+  <main class="page">
+    <article class="article-card">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <a href="index.html">Blog</a> / GitHub Submissions
       </div>
 
-      <h2>1. Prepare a clean repository</h2>
-      <p>Use a single repo per project, include a clear README, add screenshots, and provide steps to run locally.</p>
+      <span class="badge"><i class="fab fa-github"></i> Internship Guide</span>
+      <h1 class="article-title">Mastering GitHub for Internship Submissions</h1>
 
-      <h2>2. Use branches and PRs</h2>
-      <p>Create a feature branch, open a pull request for review, and keep commits focused and descriptive.</p>
+      <div class="article-meta">
+        <span><i class="far fa-calendar"></i> Feb 2025</span>
+        <span><i class="far fa-clock"></i> 12 min read</span>
+        <span><i class="fas fa-code"></i> Developers & Interns</span>
+      </div>
 
-      <h2>3. Share the right links</h2>
-      <p>For submissions, share the commit history or PR link and a GitHub Pages or deployed URL if available.</p>
+      <div class="article-hero">
+        <img src="https://images.unsplash.com/photo-1617478796500-ee7119dd91b3?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="GitHub project submission" />
+      </div>
 
-      <div style="margin-top:1.25rem;padding:1rem;border-radius:12px;background:linear-gradient(90deg,#eef2ff,#ffffff)">
-        <strong>Tip:</strong> Add a short demo GIF in the README — reviewers often skip running projects.
+      <div class="article-content">
+        <p>Submitting your project work via GitHub is a non-negotiable skill for any developer, especially during an internship. It's not just about pushing code; it's about presenting clean, functional work that reflects your professionalism and understanding of version control.</p>
+        <p>This guide will walk you through the essential steps to prepare your GitHub repositories, write effective READMEs, manage your commits, and share the right links for your internship assignments.</p>
+
+        <h2>1. Setting Up a Clean Repository</h2>
+        <p>First impressions matter. A cluttered or poorly organized repository can give a negative impression. Every internship task should ideally reside in its own dedicated GitHub repository.</p>
+        
+        <h3>Initialize Your Repository</h3>
+        <p>When starting a new project, use <code>git init</code> locally and then create a corresponding empty repository on GitHub.</p>
+        <pre><code>git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/your-username/your-project.git
+git push -u origin main</code></pre>
+        
+        <div class="tip-box">
+          <strong>Pro Tip:</strong> Always initialize your new GitHub repo with a <code>.gitignore</code> file for your chosen language/framework to automatically exclude unnecessary files like <code>node_modules</code> or <code>.env</code>.
+        </div>
+
+        <h3>The Indispensable README.md</h3>
+        <p>Your <code>README.md</code> file is your project's cover letter. It should clearly explain what your project is, how to set it up, and how to use it. A good README can compensate for minor code imperfections.</p>
+        
+        <img src="https://images.unsplash.com/photo-1628109961622-c360098f4803?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Detailed GitHub README" class="content-image" />
+        
+        <p>Include the following sections:</p>
+        <ul>
+            <li><strong>Project Title:</strong> Clear and descriptive.</li>
+            <li><strong>Description:</strong> What problem does it solve? What does it do?</li>
+            <li><strong>Features:</strong> List key functionalities.</li>
+            <li><strong>Technologies Used:</strong> Languages, frameworks, libraries.</li>
+            <li><strong>Setup Instructions:</strong> Step-by-step guide to run locally.</li>
+            <li><strong>Usage:</strong> How to interact with the project.</li>
+            <li><strong>Screenshots/GIFs:</strong> Visual proof of functionality. (Crucial for live demos!)</li>
+            <li><strong>Deployment Link:</strong> If deployed, provide a direct link.</li>
+        </ul>
+        <pre><code># My Awesome Internship Project
+
+## Description
+This project is a simple calculator application built using Python, demonstrating basic arithmetic operations.
+
+## Features
+- Addition, Subtraction, Multiplication, Division
+- User-friendly command-line interface
+
+## Technologies Used
+- Python 3.9+
+
+## Setup
+1. Clone the repository: `git clone https://github.com/your-username/your-project.git`
+2. Navigate to the project directory: `cd your-project`
+3. Run the application: `python calculator.py`
+
+## Usage
+Follow the on-screen prompts to perform calculations.
+
+## Live Demo (Optional, for web projects)
+[Link to Live Demo](https://your-deployed-app.com)
+
+## Screenshot
+![Calculator Screenshot](assets/screenshot.png)</code></pre>
+
+        <h2>2. Effective Version Control: Branches & Commits</h2>
+        <p>Good Git practices are a hallmark of a professional developer. Don't just push directly to <code>main</code>. Utilize branches and meaningful commit messages.</p>
+
+        <h3>Work on Feature Branches</h3>
+        <p>For each new task or significant change, create a new branch. This keeps your <code>main</code> branch clean and allows for easy review or rollback.</p>
+        <pre><code>git checkout -b feature/add-new-task
+# ... make changes ...
+git add .
+git commit -m "feat: implement user authentication"
+git push origin feature/add-new-task</code></pre>
+
+        <h3>Descriptive Commit Messages</h3>
+        <p>Your commit messages should tell a story. What did you change? Why? Follow conventional commit guidelines for clarity.</p>
+        <ul>
+            <li><code>feat:</code> (new feature)</li>
+            <li><code>fix:</code> (bug fix)</li>
+            <li><code>docs:</code> (documentation changes)</li>
+            <li><code>refactor:</code> (code refactoring)</li>
+        </ul>
+
+        <div class="tip-box">
+          <strong>Pro Tip:</strong> Before pushing, always run <code>git status</code> and <code>git diff</code> to review your changes. Avoid committing unnecessary files.
+        </div>
+        
+        <img src="https://images.unsplash.com/photo-1629904853893-c2c62c9c22e4?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Git commit history" class="content-image" />
+
+        <h2>3. Submitting Your Work: Sharing the Right Links</h2>
+        <p>When it's time to submit, make it easy for your mentor or reviewer to access and understand your work. Don't send zip files or screenshots.</p>
+
+        <h3>Share Your Repository Link</h3>
+        <p>The primary submission should be the URL to your project's GitHub repository (e.g., <code>https://github.com/your-username/your-project</code>).</p>
+
+        <h3>Provide Direct Commit or Pull Request Links (If Applicable)</h3>
+        <p>If your mentor asked for a specific task's submission, sharing the direct link to the final commit or a Pull Request is even better:</p>
+        <ul>
+            <li><strong>Specific Commit:</strong> <code>https://github.com/your-username/your-project/commit/your-commit-hash</code></li>
+            <li><strong>Pull Request:</strong> <code>https://github.com/your-username/your-project/pull/X</code> (where X is the PR number)</li>
+        </ul>
+        <div class="tip-box">
+          <strong>Pro Tip:</strong> For web projects, deploying to GitHub Pages, Netlify, or Vercel provides a live demo. Always include this deployed link in your README and submission.
+        </div>
+        
+        <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Deployed web project" class="content-image" />
+
+        <h2>Conclusion: Professionalism in Every Push</h2>
+        <p>Mastering GitHub for internship submissions isn't just about technical proficiency; it's about showcasing your organizational skills, attention to detail, and commitment to industry best practices. Follow these steps, and you'll not only complete your assignments but also build a valuable portfolio that speaks volumes about your capabilities.</p>
+
+        <div class="cta-box">
+          <h3 style="color:#fff; margin-top:0;">Ready to put your GitHub skills to the test?</h3>
+          <p style="color: var(--text-dim);">Join Vertecz Solutions for practical, project-based internships where your GitHub profile grows with every assignment.</p>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a class="btn-primary" href="../index.html#application">Apply Now <i class="fas fa-arrow-right"></i></a>
+            <a class="btn-primary" href="../internships.html" style="background: rgba(255,255,255,0.1); box-shadow: none;">View Domains</a>
+          </div>
+        </div>
       </div>
     </article>
   </main>
 
-  <footer class="footer">© 2025 Vertecz Solutions. All rights reserved.</footer>
+  <footer style="padding: 4rem 1.5rem; text-align: center; border-top: 1px solid var(--glass-border);">
+    <p style="color: var(--text-dim); font-size: 0.85rem;">© 2025 Vertecz Solutions. Empowering the next generation of developers.</p>
+  </footer>
+
 </body>
 </html>

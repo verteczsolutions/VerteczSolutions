@@ -3,121 +3,301 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>How to Build a Strong Portfolio During Your Virtual Internship — Vertecz Solutions</title>
-  <meta name="description" content="Turn your internship tasks into portfolio projects recruiters will notice. Ideas, formatting, and deployment tips." />
+  <title>Build a 2025 Portfolio — Vertecz Solutions</title>
+  <meta name="description" content="Master the art of portfolio building in the age of AI, Robotics, and Flying Cars. Expert tips from Vertecz Solutions." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
-    body{font-family:system-ui;color:#111;margin:0;background:#f7f7fb;line-height:1.6}
-    .container{max-width:900px;margin:2rem auto;padding:1rem}
-    article h1{font-size:2rem;margin-bottom:.5rem;color:#111}
-    article h2{font-size:1.5rem;margin-top:1.5rem;margin-bottom:.8rem;color:#222}
-    article h3{font-size:1.1rem;margin-top:1.2rem;margin-bottom:.6rem;color:#333}
-    table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.95rem}
-    th,td{padding:1rem;text-align:left;border:1px solid #e5e5e5}
-    th{background:#f5f5f7;font-weight:700}
-    tr:nth-child(even){background:#fafafa}
-    .footer{padding:1.5rem;text-align:center;color:#666}
-    .tip-box{background:#e0e7ff;padding:1.2rem;border-radius:10px;border-left:4px solid #0b66ff;margin:1.5rem 0}
-    @media (max-width:768px){
-      .container{padding:1rem;margin:1.5rem auto}
-      article h1{font-size:1.6rem;margin-bottom:.3rem}
-      article h2{font-size:1.3rem;margin-top:1.2rem;margin-bottom:.6rem}
-      article h3{font-size:1rem}
-      table{font-size:0.85rem}
-      th,td{padding:.7rem .5rem}
+    :root {
+      --primary: #0b66ff;    
+      --secondary: #6366f1;  
+      --accent: #f43f5e;     
+      --dark: #0f172a;
+      --bg: #0b0f1a;
+      --surface: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --text-main: #f8fafc;
+      --text-dim: #94a3b8;
+      --radius: 24px;
+      --shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
-    @media (max-width:480px){
-      .container{padding:.75rem;margin:1rem auto}
-      article h1{font-size:1.35rem;line-height:1.3}
-      article h2{font-size:1.15rem;margin-top:1rem}
-      article h3{font-size:0.95rem}
-      p{font-size:0.95rem}
-      table{margin:1rem 0;overflow-x:auto;display:block;font-size:0.8rem}
-      th,td{padding:.6rem .4rem}
-      .tip-box{padding:.9rem;margin:1rem 0;font-size:0.9rem}
-      figure{margin:1rem 0}
-      figcaption{font-size:0.85rem}
-      .footer{padding:1rem .75rem;font-size:0.75rem}
+
+    * { box-sizing: border-box; transition: all 0.3s ease; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(11, 102, 255, 0.1) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(244, 63, 94, 0.05) 0px, transparent 50%);
+      color: var(--text-main);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--glass-border);
+      padding: 1rem 0;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo-pill {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+
+    .nav-links a {
+      margin-left: 1.5rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover { color: var(--primary); }
+
+    /* Layout Structure */
+    .hero {
+      padding: 6rem 1.5rem 8rem;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(11, 102, 255, 0.05) 0%, transparent 100%);
+    }
+
+    .main-grid {
+      max-width: 1200px;
+      margin: -6rem auto 0;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 2.5rem;
+      padding: 0 1.5rem 5rem;
+    }
+
+    /* Content Cards */
+    .article-body {
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      border: 1px solid var(--glass-border);
+      padding: 3.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .side-box {
+      background: var(--surface);
+      padding: 1.8rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--glass-border);
+    }
+
+    .side-box h4 {
+      margin: 0 0 1rem;
+      color: var(--primary);
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Elements */
+    h1 { font-size: 3.2rem; font-weight: 800; margin: 0; letter-spacing: -0.04em; line-height: 1.1; }
+    h2 { font-size: 1.8rem; margin-top: 3rem; color: #fff; border-left: 4px solid var(--primary); padding-left: 1rem; }
+    
+    .img-main { width: 100%; border-radius: 20px; margin: 2.5rem 0; border: 1px solid var(--glass-border); }
+    
+    .feature-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--glass-border);
+      padding: 1.5rem;
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* CTA */
+    .cta-button {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 1rem 2.2rem;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-top: 1.5rem;
+      box-shadow: 0 10px 20px rgba(11, 102, 255, 0.2);
+    }
+    .cta-button:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(11, 102, 255, 0.4); }
+
+    @media (max-width: 1024px) {
+      .main-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 2.2rem; }
+      .article-body { padding: 2rem; }
     }
   </style>
 </head>
 <body>
-  <header style="background:#fff;padding:.75rem 1rem;box-shadow:0 6px 20px rgba(2,6,23,0.04)"><div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center"><div style="font-weight:800">Vertecz Solutions</div><nav><a href="../index.html">Home</a> | <a href="index.html">Blog</a></nav></div></header>
-  <main class="container">
-    <article>
-      <h1>Building a Strong Portfolio in the Age of AI, Robotics, and Flying Cars</h1>
-      <p style="color:#555">The world of technology is evolving at breakneck speed. From AI breakthroughs to the rise of humanoid robots and the first commercial flying cars, your portfolio needs to reflect the latest trends and skills. Here's how to stand out in 2025 and beyond.</p>
 
-      <figure class="article-hero" style="margin:1.5rem 0;text-align:center">
-        <img src="/assets/images/portfolio-ai-robots.jpg" alt="AI and robotics portfolio" style="max-width:100%;border-radius:14px;box-shadow:0 6px 32px rgba(0,0,0,0.08)">
-        <figcaption style="color:#888;font-size:0.95rem;margin-top:0.5rem">Showcase projects that blend AI, automation, and real-world impact.</figcaption>
-      </figure>
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+         Vertecz Solutions
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
 
-      <h2>The 2025 Tech Landscape: What Changed</h2>
-      <p>Just two years ago, building an internship portfolio meant basic web apps and data visualizations. Today, the bar is different. Recruiters want to see:</p>
-      <ul>
-        <li><strong>AI Integration:</strong> Even simple apps that use ChatGPT APIs or local LLMs.</li>
-        <li><strong>Real-Time Data:</strong> Projects that fetch live data from APIs and update dashboards.</li>
-        <li><strong>Automation & Robotics:</strong> Code that controls IoT devices, drones, or simulated robots.</li>
-        <li><strong>Cloud Deployment:</strong> Apps running on AWS, Google Cloud, or Azure—not just local machines.</li>
-        <li><strong>Mobile & Responsive:</strong> Cross-device compatibility is table stakes now.</li>
-      </ul>
+  <section class="hero">
+    <span style="color:var(--primary); font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">Portfolio Guide 2025</span>
+    <h1>The Future of Personal Branding</h1>
+    <p style="max-width:750px; margin: 1.5rem auto; color: var(--text-dim); font-size: 1.1rem;">
+      In an era of AI breakthroughs and humanoid robotics, a static resume isn't enough. Build a portfolio that demonstrates your ability to adapt and innovate.
+    </p>
+  </section>
 
-      <h2>Understanding Your Audience: What Recruiters Actually Look At</h2>
-      <p>A portfolio isn't just a collection of projects. Recruiters spend about 6 seconds scanning your GitHub before deciding if they care. Here's what they look for in that time:</p>
-      <ol>
-        <li><strong>README quality:</strong> Clear, well-written, with screenshots and deployment links.</li>
-        <li><strong>Code cleanliness:</strong> Consistent style, proper naming, docstrings.</li>
-        <li><strong>Live demo:</strong> A working, deployed version they can test immediately.</li>
-        <li><strong>Recent activity:</strong> Commits in the last 3 months show you're actively developing.</li>
-        <li><strong>Diversity:</strong> Multiple projects showing different skills (web, ML, backend, etc.).</li>
-      </ol>
+  <main class="main-grid">
+    <article class="article-body">
+      <h2>The 2025 Tech Shift</h2>
+      <p style="color: var(--text-dim);">Recruiters in 2025 aren't just looking for "skills"; they are looking for **implementation awareness**. Whether you are a web developer or a data scientist, your projects must now bridge the gap between code and emerging reality.</p>
 
-      <h2>Why Tech Portfolios Matter More Than Ever</h2>
-      <ul>
-        <li><strong>AI is everywhere:</strong> Recruiters want to see hands-on experience with machine learning, automation, or data-driven apps.</li>
-        <li><strong>Robotics & IoT:</strong> Projects that interact with hardware, sensors, or robots are highly valued.</li>
-        <li><strong>Web3, AR/VR, and Flying Cars:</strong> Even if you’re not building the next Tesla, showing awareness of new tech is a plus.</li>
-      </ul>
+      
+      <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=1200" alt="Futuristic Portfolio" class="img-main">
 
-      <h2>Recent Tech News: What’s Hot in 2025</h2>
-      <ul>
-        <li><strong>OpenAI’s GPT-5</strong> is powering real-time translation and content creation tools.</li>
-        <li><strong>First commercial flying car</strong> launches in Dubai, blending AI navigation and electric propulsion.</li>
-        <li><strong>Humanoid robots</strong> like Tesla Optimus and Boston Dynamics Atlas are now assisting in hospitals and warehouses.</li>
-        <li><strong>AI-powered code assistants</strong> are mainstream—knowing how to use them is a skill.</li>
-      </ul>
-
-      <h2>How to Structure Your Portfolio</h2>
-      <ol>
-        <li><strong>AI/ML Project:</strong> e.g., chatbot, image classifier, or recommendation engine. Include a demo video and code.</li>
-        <li><strong>Robotics/IoT Project:</strong> Arduino, Raspberry Pi, or simulation. Show wiring diagrams, code, and a short write-up.</li>
-        <li><strong>Web or Mobile App:</strong> Responsive, accessible, and deployed. Bonus: integrate AI APIs or real-time data.</li>
-        <li><strong>Tech Blog or News Analysis:</strong> Write about a recent advancement—show you’re up to date.</li>
-      </ol>
-
-      <h2>Tips for a Future-Proof Portfolio</h2>
-      <ul>
-        <li>Include <strong>screenshots, GIFs, and videos</strong> for every project.</li>
-        <li>Write a clear README: what, why, how to run, and what you learned.</li>
-        <li>Link to your GitHub, LinkedIn, and (optionally) a short intro video.</li>
-        <li>Highlight any use of AI, automation, or new tech—even if it’s a small part.</li>
-      </ul>
-
-      <h2>Portfolio Inspiration Gallery</h2>
-      <div style="display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;margin:1.5rem 0">
-        <img src="/assets/images/portfolio-ai.jpg" alt="AI project screenshot" style="width:260px;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,0.07)">
-        <img src="/assets/images/robotics-demo.jpg" alt="Robotics project" style="width:260px;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,0.07)">
-        <img src="/assets/images/flying-car-app.jpg" alt="Flying car app" style="width:260px;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,0.07)">
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+        <div class="feature-card">
+          <i class="fas fa-microchip" style="color:var(--primary); font-size: 1.5rem; margin-bottom: 1rem;"></i>
+          <h4>Hardware Interaction</h4>
+          <p style="font-size: 0.9rem; color: var(--text-dim);">Projects involving IoT or simulation show you can handle the physical-digital divide.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-brain" style="color:var(--accent); font-size: 1.5rem; margin-bottom: 1rem;"></i>
+          <h4>AI-First Logic</h4>
+          <p style="font-size: 0.9rem; color: var(--text-dim);">Showcase how you use LLMs or computer vision to solve non-trivial problems.</p>
+        </div>
       </div>
 
-      <h2>Conclusion: Stay Curious, Stay Relevant</h2>
-      <p>Technology is moving fast. The best portfolios show not just what you’ve built, but that you’re learning and adapting. Whether it’s AI, robotics, or the next big thing, make sure your portfolio tells that story.</p>
-      <div style="margin-top:2rem;padding:1.2rem;background:linear-gradient(90deg,#e0e7ff,#fff);border-radius:12px;text-align:center">
-        <strong>Ready to build your future-proof portfolio?</strong><br>
-        <a href="../index.html#apply" style="display:inline-block;margin-top:0.7rem;padding:0.7rem 1.5rem;background:#0b66ff;color:#fff;border-radius:8px;text-decoration:none;font-weight:700">Apply for a Vertecz Solutions Internship</a>
+      <h2>Recruiter Insights: The 6-Second Rule</h2>
+      <p>A recruiter's attention is a scarce resource. To win their interest, your GitHub and personal site must master three elements:</p>
+      
+      
+      
+      <ul style="color: var(--text-dim); padding-left: 1.2rem;">
+        <li><strong style="color:#fff">The "Quick-Start" README:</strong> Can someone understand your project in 10 seconds?</li>
+        <li><strong style="color:#fff">Live Deployment:</strong> Use Vercel, Netlify, or AWS. If it’s not live, it doesn’t exist.</li>
+        <li><strong style="color:#fff">Visual Proof:</strong> GIFs of your robot simulation or screen recordings of your AI chatbot in action.</li>
+      </ul>
+
+      <h2>Breaking News: Portfolio Trends</h2>
+      <div class="feature-card" style="border-left: 4px solid var(--primary);">
+        <p style="margin:0; font-style: italic; color: var(--text-main);">
+          "By 2025, 80% of top-tier tech hires are verified through project-based portfolios rather than traditional degrees alone." — Tech Industry Report
+        </p>
+      </div>
+
+      <h2>Structuring Your Masterpiece</h2>
+      <p>Don't just list projects; tell a story of growth. We recommend this 4-pillar structure:</p>
+      
+      <ol style="color: var(--text-dim);">
+        <li style="margin-bottom: 1rem;"><strong style="color:#fff;">The AI Pillar:</strong> A project utilizing real-time API integration (e.g., a smart personal assistant).</li>
+        <li style="margin-bottom: 1rem;"><strong style="color:#fff;">The Logic Pillar:</strong> A complex backend or automation script (e.g., an automated route optimizer for drones).</li>
+        <li style="margin-bottom: 1rem;"><strong style="color:#fff;">The Visual Pillar:</strong> A highly responsive, sleek frontend that looks good on any device.</li>
+        <li style="margin-bottom: 1rem;"><strong style="color:#fff;">The Thought Pillar:</strong> A blog post or "Lessons Learned" section for every project.</li>
+      </ol>
+
+      
+      <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc48?auto=format&fit=crop&q=80&w=800" alt="Tech Infrastructure" class="img-main">
+
+      <div style="margin-top:4rem; padding: 2.5rem; background: linear-gradient(135deg, rgba(11,102,255,0.2), transparent); border-radius: 20px; text-align: center; border: 1px solid var(--primary);">
+        <h3 style="margin-top:0;">Ready to Outpace the Competition?</h3>
+        <p style="color: var(--text-dim);">At Vertecz Solutions, we don't just give you tasks; we give you portfolio-worthy challenges that recruiters crave.</p>
+        <a href="../index.html#apply" class="cta-button">Join our Internship Program</a>
       </div>
     </article>
+
+    <aside class="sidebar">
+  <div class="side-box">
+    <h4><i class="fas fa-briefcase"></i> Why Choose Vertecz?</h4>
+    <p style="font-size: 0.85rem; color: var(--text-dim);">
+      We focus on practical learning and industry-ready skills through structured training.
+    </p>
+    <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: var(--text-dim);">
+      <li>Hands-on Project-Based Learning</li>
+      <li>Real-World Industry Tasks</li>
+      <li>Mentor-Guided Assignments</li>
+      <li>Certificate of Completion</li>
+    </ul>
+  </div>
+
+  <div class="side-box" style="background: linear-gradient(to bottom, var(--dark), #1e293b);">
+    <h4 style="color: var(--accent);"><i class="fas fa-lightbulb"></i> Popular Internship Tracks</h4>
+
+    <div style="font-size: 0.85rem; margin-bottom: 1rem;">
+      <div style="color:#fff; margin-bottom: 0.3rem;">• Web Development</div>
+      <div style="color:var(--text-dim);">HTML, CSS, JavaScript & project-based learning</div>
+    </div>
+
+    <div style="font-size: 0.85rem; margin-bottom: 1rem;">
+      <div style="color:#fff; margin-bottom: 0.3rem;">• Data Science & AI</div>
+      <div style="color:var(--text-dim);">Python, ML fundamentals & real datasets</div>
+    </div>
+
+    <div style="font-size: 0.85rem;">
+      <div style="color:#fff; margin-bottom: 0.3rem;">• Software Development</div>
+      <div style="color:var(--text-dim);">Java, backend logic & problem solving</div>
+    </div>
+  </div>
+
+  <div class="side-box">
+    <h4><i class="fas fa-certificate"></i> Certification</h4>
+    <p style="font-size: 0.85rem; color: var(--text-dim);">
+      All participants receive an official <strong>Internship Completion Certificate</strong>
+      upon successful task submission and evaluation.
+    </p>
+  </div>
+</aside>
+
   </main>
-  <footer class="footer">© 2025 Vertecz Solutions. All rights reserved.</footer>
+
+  <footer style="padding: 5rem 1.5rem; text-align: center; border-top: 1px solid var(--glass-border);">
+    <div style="font-weight: 800; font-size: 1.2rem; margin-bottom: 1rem;">Vertecz Solutions</div>
+    <div style="color: var(--text-dim); font-size: 0.85rem;">© 2025 Vertecz Solutions. Shaping the architects of tomorrow.</div>
+  </footer>
+
 </body>
 </html>

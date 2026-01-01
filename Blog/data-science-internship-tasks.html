@@ -3,146 +3,290 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Data Science Internship Tasks — What You Actually Do — Vertecz Solutions</title>
-  <meta name="description" content="A practical look at EDA, visualization, model selection, and reporting tasks common in data science internships." />
+  <title>Data Science Tasks 2025 — Vertecz Solutions</title>
+  <meta name="description" content="A practical look at EDA, AI modeling, and robotics data tasks common in data science internships." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
-    body{font-family:system-ui;color:#111;margin:0;background:#f7f7fb;line-height:1.6}
-    .container{max-width:900px;margin:2rem auto;padding:1rem}
-    article h1{font-size:2rem;margin-bottom:.5rem;color:#111}
-    article h2{font-size:1.5rem;margin-top:1.5rem;margin-bottom:.8rem;color:#222}
-    article h3{font-size:1.1rem;margin-top:1.2rem;margin-bottom:.6rem}
-    table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.95rem}
-    th,td{padding:1rem;text-align:left;border:1px solid #e5e5e5}
-    th{background:#f5f5f7;font-weight:700}
-    tr:nth-child(even){background:#fafafa}
-    .footer{padding:1.5rem;text-align:center;color:#666}
-    .tip-box{background:#e0e7ff;padding:1.2rem;border-radius:10px;border-left:4px solid #0b66ff;margin:1.5rem 0}
-    @media (max-width:768px){
-      .container{padding:1rem;margin:1.5rem auto}
-      article h1{font-size:1.6rem;margin-bottom:.3rem}
-      article h2{font-size:1.3rem;margin-top:1.2rem}
-      article h3{font-size:1rem}
-      table{font-size:0.85rem}
-      th,td{padding:.7rem .5rem}
+    :root {
+      --primary: #6366f1;    /* Indigo AI theme */
+      --secondary: #06b6d4;  /* Cyan Tech */
+      --accent: #f43f5e;     /* Rose for highlights */
+      --dark: #0f172a;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --radius: 20px;
+      --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
     }
-    @media (max-width:480px){
-      .container{padding:.75rem;margin:1rem auto}
-      article h1{font-size:1.35rem;line-height:1.3}
-      article h2{font-size:1.15rem;margin-top:1rem}
-      article h3{font-size:0.95rem}
-      p{font-size:0.95rem}
-      table{margin:1rem 0;overflow-x:auto;display:block;font-size:0.8rem}
-      th,td{padding:.6rem .4rem}
-      .tip-box{padding:.9rem;margin:1rem 0;font-size:0.9rem}
-      figure{margin:1rem 0}
-      figcaption{font-size:0.85rem}
-      .footer{padding:1rem .75rem;font-size:0.75rem}
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 0.8rem 0;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-links a {
+      margin-left: 1.5rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    /* Layout Structure */
+    .hero {
+      background: linear-gradient(135deg, var(--dark) 0%, #312e81 100%);
+      color: white;
+      padding: 6rem 1.5rem;
+      text-align: center;
+    }
+
+    .main-grid {
+      max-width: 1200px;
+      margin: -4rem auto 0;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 2rem;
+      padding: 0 1.5rem 5rem;
+    }
+
+    /* Content Cards */
+    .article-body {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 3rem;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .side-box {
+      background: var(--surface);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid #f1f5f9;
+    }
+
+    .side-box h4 {
+      margin-top: 0;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Elements */
+    h1 { font-size: 2.8rem; font-weight: 800; margin: 0; letter-spacing: -0.02em; }
+    h2 { font-size: 1.8rem; margin-top: 2.5rem; color: var(--dark); border-bottom: 2px solid #f1f5f9; padding-bottom: 0.5rem; }
+    
+    .img-main { width: 100%; border-radius: 15px; margin: 2rem 0; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+    .img-inline { width: 100%; border-radius: 12px; margin: 1rem 0; }
+
+    .step-item {
+      padding: 1.5rem;
+      border-left: 4px solid var(--secondary);
+      background: #f8fafc;
+      margin-bottom: 1rem;
+      border-radius: 0 12px 12px 0;
+    }
+
+    /* Table */
+    .table-container { overflow-x: auto; margin: 2rem 0; }
+    table { width: 100%; border-collapse: collapse; }
+    th { background: #f1f5f9; padding: 1rem; text-align: left; border-bottom: 2px solid #e2e8f0; }
+    td { padding: 1rem; border-bottom: 1px solid #f1f5f9; }
+
+    /* CTA */
+    .cta-button {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.3s;
+      margin-top: 1rem;
+    }
+    .cta-button:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3); }
+
+    @media (max-width: 992px) {
+      .main-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2rem; }
+      .article-body { padding: 1.5rem; }
     }
   </style>
 </head>
 <body>
-  <header style="background:#fff;padding:.75rem 1rem;box-shadow:0 6px 20px rgba(2,6,23,0.04)"><div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center"><div style="font-weight:800">Vertecz Solutions</div><nav><a href="../index.html">Home</a> | <a href="index.html">Blog</a></nav></div></header>
-  <main class="container">
-    <article>
-      <h1>Data Science in 2025: From Human Insights to AI-Driven Predictions</h1>
-      <p style="color:#555">Data science has evolved from simple analytics to powering autonomous vehicles, humanoid robots, and real-time AI. Learn what modern data scientists actually do, and how your internship tasks align with cutting-edge technology.</p>
 
-      <figure class="article-hero" style="margin:1.5rem 0;text-align:center">
-        <img src="/assets/images/data-science-ai.jpg" alt="Data science and AI" style="max-width:100%;border-radius:14px;box-shadow:0 6px 32px rgba(0,0,0,0.08)">
-        <figcaption style="color:#888;font-size:0.95rem;margin-top:0.5rem">Data powers the AI revolution—from self-driving cars to predictive healthcare.</figcaption>
-      </figure>
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <i class="fas fa-brain" style="color:var(--primary)"></i> Vertecz Solutions
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Blog</a>
+        <a href="#apply" style="background:var(--dark); color:white; padding: 0.5rem 1rem; border-radius: 8px;">Apply</a>
+      </nav>
+    </div>
+  </header>
 
-      <h2>The Data Science Landscape in 2025</h2>
-      <p>Data scientists are no longer just creating dashboards. They're:</p>
-      <ul>
-        <li><strong>Training AI models</strong> that recognize patterns in medical imaging and autonomous vehicle data.</li>
-        <li><strong>Processing real-time streams</strong> from IoT sensors, drones, and flying vehicles.</li>
-        <li><strong>Building recommendation engines</strong> that power everything from Netflix to robot task allocation.</li>
-        <li><strong>Analyzing ethical biases</strong> in AI models—a critical skill companies need.</li>
-      </ul>
+  <section class="hero">
+    <h1>Data Science in 2025</h1>
+    <p style="max-width:700px; margin: 1rem auto; opacity: 0.9;">From Human Insights to AI-Driven Predictions. Discover what modern data scientists actually do at the cutting edge.</p>
+  </section>
 
-      <h2>Real-World Tasks: A Modern Data Scientist's Week</h2>
-      <ol>
-        <li><strong>Week 1: Data Ingestion & EDA</strong>
-          <ul>
-            <li>Source data from APIs (e.g., Tesla's driving data, weather IoT sensors)</li>
-            <li>Clean messy real-world datasets</li>
-            <li>Exploratory visualization—identify patterns, outliers, and opportunities</li>
-          </ul>
-        </li>
-        <li><strong>Week 2: Feature Engineering & Preprocessing</strong>
-          <ul>
-            <li>Create meaningful features (e.g., "time-since-last-charge" for flying cars)</li>
-            <li>Normalize and scale data for ML models</li>
-            <li>Handle missing data and imbalanced datasets</li>
-          </ul>
-        </li>
-        <li><strong>Week 3: Modeling & Experimentation</strong>
-          <ul>
-            <li>Train multiple models (regression, classification, clustering)</li>
-            <li>Use ensemble methods to improve accuracy</li>
-            <li>Validate with cross-validation and proper test sets</li>
-          </ul>
-        </li>
-        <li><strong>Week 4: Storytelling & Deployment</strong>
-          <ul>
-            <li>Create compelling visualizations and reports</li>
-            <li>Write business recommendations</li>
-            <li>Deploy models as APIs or dashboards</li>
-          </ul>
-        </li>
-      </ol>
+  <main class="main-grid">
+    <article class="article-body">
+      <p style="font-size: 1.1rem; color: var(--text-muted);">
+        Data science is no longer just about static dashboards. It’s the engine driving the AI revolution—from self-driving Teslas to robotic task management.
+      </p>
 
-      <h2>Recent Tech News in Data Science</h2>
-      <ul>
-        <li><strong>LLMs for Data Analysis:</strong> ChatGPT and Claude can now help generate SQL queries and analyze datasets.</li>
-        <li><strong>Autonomous Vehicle Data:</strong> Tesla's and Google's self-driving cars generate terabytes of sensor data daily—a data scientist's dream.</li>
-        <li><strong>Robotics Data:</strong> Humanoid robots like Tesla Optimus and Boston Dynamics Atlas require massive training datasets to learn tasks.</li>
-        <li><strong>AI Ethics & Bias Detection:</strong> Companies are hiring data scientists specifically to audit AI models for fairness.</li>
-      </ul>
+      
+      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200" alt="Future Tech" class="img-main">
 
-      <h2>Tools & Technologies to Master</h2>
-      <table style="width:100%;margin:1.5rem 0;border-collapse:collapse;font-size:0.95rem">
-        <tr style="background:#f5f5f7">
-          <th style="padding:0.8rem;text-align:left;border:1px solid #ddd">Skill</th>
-          <th style="padding:0.8rem;text-align:left;border:1px solid #ddd">Tools & Libraries</th>
-        </tr>
-        <tr>
-          <td style="padding:0.8rem;border:1px solid #ddd"><strong>Programming</strong></td>
-          <td style="padding:0.8rem;border:1px solid #ddd">Python, SQL, Spark</td>
-        </tr>
-        <tr style="background:#fafafa">
-          <td style="padding:0.8rem;border:1px solid #ddd"><strong>Data Manipulation</strong></td>
-          <td style="padding:0.8rem;border:1px solid #ddd">Pandas, NumPy, Polars</td>
-        </tr>
-        <tr>
-          <td style="padding:0.8rem;border:1px solid #ddd"><strong>Machine Learning</strong></td>
-          <td style="padding:0.8rem;border:1px solid #ddd">Scikit-learn, TensorFlow, PyTorch</td>
-        </tr>
-        <tr style="background:#fafafa">
-          <td style="padding:0.8rem;border:1px solid #ddd"><strong>Visualization</strong></td>
-          <td style="padding:0.8rem;border:1px solid #ddd">Matplotlib, Seaborn, Tableau, Power BI</td>
-        </tr>
-        <tr>
-          <td style="padding:0.8rem;border:1px solid #ddd"><strong>Deployment</strong></td>
-          <td style="padding:0.8rem;border:1px solid #ddd">Docker, Kubernetes, FastAPI</td>
-        </tr>
-      </table>
-
-      <h2>Portfolio Projects That Impress in 2025</h2>
-      <ul>
-        <li><strong>Autonomous Vehicle Simulation:</strong> Use CARLA simulator to predict vehicle behavior.</li>
-        <li><strong>Humanoid Robot Task Prediction:</strong> Analyze robot sensor data to predict task success rates.</li>
-        <li><strong>Flying Car Route Optimization:</strong> Build a model to optimize air routes using weather and traffic data.</li>
-        <li><strong>Healthcare AI Bias Audit:</strong> Analyze a medical ML model for fairness and bias.</li>
-      </ul>
-
-      <div style="margin-top:2rem;padding:1.2rem;background:linear-gradient(90deg,#e0e7ff,#fff);border-radius:12px;text-align:center">
-        <strong>Ready to become a data scientist?</strong><br>
-        <a href="../index.html#application" style="display:inline-block;margin-top:0.7rem;padding:0.7rem 1.5rem;background:#0b66ff;color:#fff;border-radius:8px;text-decoration:none;font-weight:700">Join Our Data Science Internship</a>
+      <h2>The Modern Landscape</h2>
+      <p>Data scientists in 2025 focus on high-velocity data processing and ethical AI deployment. At Vertecz, we align our internships with these core trends:</p>
+      
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem;">
+        <div>
+          <i class="fas fa-car-side" style="color:var(--secondary); font-size: 1.5rem;"></i>
+          <h4>Autonomous Systems</h4>
+          <p style="font-size: 0.9rem;">Processing terabytes of sensor data from self-driving vehicles and drones.</p>
+        </div>
+        <div>
+          <i class="fas fa-robot" style="color:var(--accent); font-size: 1.5rem;"></i>
+          <h4>Robotics Data</h4>
+          <p style="font-size: 0.9rem;">Training humanoid robots like Tesla Optimus through massive interaction datasets.</p>
+        </div>
       </div>
+
+      <h2>Your Journey: The 4-Week Roadmap</h2>
+      
+      <div class="step-item">
+        <strong>Week 1: Data Ingestion & Discovery</strong>
+        <p>Source real-world data from IoT APIs and perform deep Exploratory Data Analysis (EDA).</p>
+      </div>
+
+      
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Data Analysis" class="img-inline" style="max-height: 250px; object-fit: cover;">
+
+      <div class="step-item">
+        <strong>Week 2: Feature Engineering</strong>
+        <p>Convert raw sensor data into meaningful AI inputs. Normalize, scale, and handle imbalances.</p>
+      </div>
+
+      <div class="step-item">
+        <strong>Week 3: Modeling & Experimentation</strong>
+        <p>Build ensemble models using PyTorch and Scikit-learn. Validate performance against real benchmarks.</p>
+      </div>
+
+      <div class="step-item">
+        <strong>Week 4: Deployment & Storytelling</strong>
+        <p>Turn code into impact. Deploy your model as a FastAPI and present your findings to stakeholders.</p>
+      </div>
+
+      <h2>Tools of the Trade</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr><th>Domain</th><th>Mastered Tools</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Programming</strong></td><td>Python, SQL, Spark, Polars</td></tr>
+            <tr><td><strong>Machine Learning</strong></td><td>TensorFlow, PyTorch, Scikit-learn</td></tr>
+            <tr><td><strong>Deployment</strong></td><td>Docker, Kubernetes, FastAPI</td></tr>
+            <tr><td><strong>Visualization</strong></td><td>Tableau, PowerBI, Seaborn</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      
+      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" alt="Data Storytelling" class="img-inline">
     </article>
+
+    <aside class="sidebar">
+  <div class="side-box">
+    <h4><i class="fas fa-building"></i> About Vertecz</h4>
+    <p style="font-size: 0.85rem; color: var(--text-dim);">
+      Vertecz Solutions is an education-focused platform dedicated to helping learners build practical skills through guided training and real-world projects.
+    </p>
+    <ul style="font-size: 0.85rem; padding-left: 1rem;">
+      <li>Industry-relevant learning modules</li>
+      <li>Hands-on project experience</li>
+      <li>Skill-focused training approach</li>
+    </ul>
+  </div>
+
+  <div class="side-box" style="background: var(--dark); color: white;">
+    <h4 style="color: var(--accent);"><i class="fas fa-lightbulb"></i> Program Highlights</h4>
+    <ul style="font-size: 0.85rem; padding-left: 1rem; color: #e5e7eb;">
+      <li>Practical assignments & tasks</li>
+      <li>Self-paced learning model</li>
+      <li>Guided project submissions</li>
+      <li>Completion certification</li>
+    </ul>
+  </div>
+
+  <div class="side-box">
+    <h4><i class="fas fa-calendar-check"></i> Upcoming Batch</h4>
+    <p style="font-size: 0.85rem; font-weight: 600;">Enrollment Open</p>
+    <p style="color: var(--accent); font-weight: 700; font-size: 1rem;">Start Anytime</p>
+    <a href="../index.html#application" class="cta-button" style="width: 100%; text-align: center; padding: 0.8rem 0;">
+      Apply Now
+    </a>
+  </div>
+</aside>
+
   </main>
-  <footer class="footer">© 2025 Vertecz Solutions. All rights reserved.</footer>
+
+  <footer style="padding: 4rem 1.5rem; text-align: center; background: white; border-top: 1px solid #e2e8f0;">
+    <p style="font-weight: 800; margin-bottom: 0.5rem;">Vertecz Solutions</p>
+    <p style="font-size: 0.8rem; color: var(--text-muted);">© 2025 Vertecz Solutions. Empowering the data-driven future.</p>
+  </footer>
+
 </body>
 </html>

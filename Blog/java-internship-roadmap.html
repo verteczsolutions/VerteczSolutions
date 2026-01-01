@@ -3,161 +3,343 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Java Internship Roadmap: From Basics to Project Submission — Vertecz Solutions</title>
-  <meta name="description" content="A simple Java learning roadmap for interns: core language, OOP, small projects, and submission tips." />
+  <title>Java Internship Roadmap 2026: Enterprise to AI | Vertecz Solutions</title>
+  <meta name="description" content="A comprehensive Java learning roadmap for interns: Core Java, OOP, Spring Boot, and Robotics systems." />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
-    body{font-family:system-ui;color:#111;margin:0;background:#f7f7fb;line-height:1.6}
-    .container{max-width:900px;margin:2rem auto;padding:1rem}
-    article h1{font-size:2rem;margin-bottom:.5rem;color:#111}
-    article h2{font-size:1.5rem;margin-top:1.5rem;margin-bottom:.8rem;color:#222}
-    article h3{font-size:1.1rem;margin-top:1.2rem;margin-bottom:.6rem}
-    table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.95rem}
-    th,td{padding:1rem;text-align:left;border:1px solid #e5e5e5}
-    th{background:#f5f5f7;font-weight:700}
-    tr:nth-child(even){background:#fafafa}
-    .footer{padding:1.5rem;text-align:center;color:#666}
-    .tip-box{background:#e0e7ff;padding:1.2rem;border-radius:10px;border-left:4px solid #0b66ff;margin:1.5rem 0}
-    @media (max-width:768px){
-      .container{padding:1rem;margin:1.5rem auto}
-      article h1{font-size:1.6rem;margin-bottom:.3rem}
-      article h2{font-size:1.3rem;margin-top:1.2rem}
-      article h3{font-size:1rem}
-      table{font-size:0.85rem}
-      th,td{padding:.7rem .5rem}
+    :root {
+      --primary: #4f46e5;    /* Indigo */
+      --secondary: #10b981;  /* Emerald */
+      --accent: #f59e0b;     /* Orange */
+      --dark: #0f172a;       /* Slate 900 */
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --radius: 16px;
+      --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
     }
-    @media (max-width:480px){
-      .container{padding:.75rem;margin:1rem auto}
-      article h1{font-size:1.35rem;line-height:1.3}
-      article h2{font-size:1.15rem;margin-top:1rem}
-      article h3{font-size:0.95rem}
-      p{font-size:0.95rem}
-      table{margin:1rem 0;overflow-x:auto;display:block;font-size:0.8rem}
-      th,td{padding:.6rem .4rem}
-      .tip-box{padding:.9rem;margin:1rem 0;font-size:0.9rem}
-      figure{margin:1rem 0}
-      figcaption{font-size:0.85rem}
-      .footer{padding:1rem .75rem;font-size:0.75rem}
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+
+    header {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 0.75rem 0;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-links a {
+      margin-left: 2rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+    .nav-links a:hover { color: var(--primary); }
+
+    .hero {
+      background: linear-gradient(135deg, var(--dark) 0%, #1e3a8a 100%);
+      color: white;
+      padding: 5rem 1.5rem 8rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 750px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    .meta-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: -5rem auto 0;
+      padding: 0 1.5rem 5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .content-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 3rem;
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .spec-card {
+      background: #f8fafc;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      transition: 0.3s;
+    }
+    .spec-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+    .spec-card h4 { margin: 0 0 1rem 0; color: var(--primary); font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
+    .spec-card ul { padding-left: 1.2rem; margin-bottom: 0; font-size: 0.9rem; color: var(--text-muted); }
+
+    .table-wrapper { overflow-x: auto; margin: 2rem 0; border-radius: 12px; border: 1px solid #e2e8f0; }
+    table { width: 100%; border-collapse: collapse; background: white; }
+    th { background: #f8fafc; padding: 1rem; text-align: left; font-weight: 700; border-bottom: 2px solid #e2e8f0; color: var(--dark); }
+    td { padding: 1rem; border-bottom: 1px solid #f1f5f9; font-size: 0.95rem; }
+
+    h2 { font-size: 2rem; margin-top: 3.5rem; border-left: 5px solid var(--secondary); padding-left: 1rem; color: var(--dark); }
+    h3 { font-size: 1.5rem; margin-top: 2.5rem; color: var(--primary); }
+
+    .tip-box {
+      background: #f0fdf4;
+      border-left: 5px solid var(--secondary);
+      padding: 1.5rem;
+      border-radius: 0 12px 12px 0;
+      margin: 2rem 0;
+      display: flex;
+      gap: 1rem;
+    }
+    .tip-box i { color: var(--secondary); font-size: 1.5rem; }
+
+    .featured-img { width: 100%; border-radius: 14px; margin: 2rem 0; box-shadow: var(--shadow); }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--primary) 0%, #3730a3 100%);
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+      border-radius: var(--radius);
+      margin-top: 4rem;
+    }
+
+    .btn-apply {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      margin-top: 1.5rem;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+    }
+    .btn-apply:hover { transform: scale(1.05); background: #d97706; }
+
+    .env-box {
+        background: var(--dark);
+        color: #94a3b8;
+        padding: 2rem;
+        border-radius: 12px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.9rem;
+    }
+    .env-box strong { color: var(--secondary); }
+
+    footer { padding: 4rem 1.5rem; text-align: center; background: white; border-top: 1px solid #e2e8f0; margin-top: 5rem; color: var(--text-muted); }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .content-card { padding: 1.5rem; }
+      .nav-links { display: none; }
     }
   </style>
 </head>
 <body>
-  <header style="background:#fff;padding:.75rem 1rem;box-shadow:0 6px 20px rgba(2,6,23,0.04)"><div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center"><div style="font-weight:800">Vertecz Solutions</div><nav><a href="../index.html">Home</a> | <a href="index.html">Blog</a></nav></div></header>
+
+  <header>
+    <div class="nav-container">
+      <div class="brand"><i class="fa-solid fa-code text-primary"></i> Vertecz Solutions</div>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Roadmaps</a>
+        <a href="#apply">Internships</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="meta-tag">Updated for 2026 Development Standards</span>
+    <h1>Java: From Enterprise Apps to Robotics & AI</h1>
+    <p>Master the world's most robust language. This roadmap guides you from core syntax to high-performance microservices and robotics control.</p>
+  </section>
+
   <main class="container">
-    <article>
-      <h1>Java in 2025: From Enterprise Apps to Robotics & AI Systems</h1>
-      <p style="color:#555">Java powers everything from banking systems to robotics control software and AI backends. This roadmap takes you from a beginner to building real projects that matter in the modern tech landscape.</p>
+    <div class="content-card">
+      
+      <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1000&q=80" alt="Java Development" class="featured-img">
 
-      <figure class="article-hero" style="margin:1.5rem 0;text-align:center">
-        <img src="/assets/images/java-enterprise-ai.jpg" alt="Java enterprise and robotics" style="max-width:100%;border-radius:14px;box-shadow:0 6px 32px rgba(0,0,0,0.08)">
-        <figcaption style="color:#888;font-size:0.95rem;margin-top:0.5rem">Java drives enterprise systems, microservices, and real-time robotics control.</figcaption>
-      </figure>
-
-      <h2>Why Java Still Dominates in 2025</h2>
-      <ul>
-        <li><strong>Enterprise Standard:</strong> 90% of Fortune 500 companies use Java.</li>
-        <li><strong>Robotics & IoT:</strong> Android, Java for Robotics (JFR), and embedded systems rely on Java.</li>
-        <li><strong>Microservices:</strong> Spring Boot and Kubernetes are the backbone of modern cloud apps.</li>
-        <li><strong>AI/ML Backend:</strong> Java serves ML models via APIs and handles high-concurrency requests.</li>
-      </ul>
-
-      <h2>Your Java Learning Roadmap</h2>
-      <ol>
-        <li><strong>Phase 1: Core Java (Weeks 1–2)</strong>
-          <ul>
-            <li>Variables, data types, loops, and conditionals</li>
-            <li>Arrays and Collections (ArrayList, HashMap)</li>
-            <li>String manipulation and basic I/O</li>
-            <li>Practice: Build a CLI calculator, expense tracker</li>
-          </ul>
-        </li>
-        <li><strong>Phase 2: Object-Oriented Programming (Weeks 3–4)</strong>
-          <ul>
-            <li>Classes, objects, and inheritance</li>
-            <li>Polymorphism and encapsulation</li>
-            <li>Abstract classes and interfaces</li>
-            <li>Practice: Build a library management system with OOP</li>
-          </ul>
-        </li>
-        <li><strong>Phase 3: Advanced Topics (Weeks 5–6)</strong>
-          <ul>
-            <li>Exception handling</li>
-            <li>File I/O and serialization</li>
-            <li>Multithreading and concurrency</li>
-            <li>Streams and functional programming (lambda expressions)</li>
-          </ul>
-        </li>
-        <li><strong>Phase 4: Frameworks & Real-World Apps (Weeks 7–8)</strong>
-          <ul>
-            <li>Spring Boot basics</li>
-            <li>Build a REST API for a task management app</li>
-            <li>Connect to a database (MySQL/PostgreSQL)</li>
-            <li>Deploy on GitHub and Heroku</li>
-          </ul>
-        </li>
-      </ol>
-
-      <h2>Recent Java Innovations (2025)</h2>
-      <ul>
-        <li><strong>Java 23 & 24:</strong> Virtual threads for ultra-high concurrency, pattern matching improvements.</li>
-        <li><strong>Spring AI:</strong> Official Spring framework for building AI-powered applications.</li>
-        <li><strong>Quarkus:</strong> Lightning-fast Java for cloud and serverless applications.</li>
-        <li><strong>Robotics Platforms:</strong> Java is used in FIRST Robotics and humanoid robot control systems.</li>
-      </ul>
-
-      <h2>Real-World Java Project Ideas</h2>
-      <ul>
-        <li><strong>Beginner:</strong> CLI weather app (fetch data from OpenWeatherMap API)</li>
-        <li><strong>Intermediate:</strong> Task management REST API with Spring Boot and PostgreSQL</li>
-        <li><strong>Advanced:</strong> Real-time chat application with WebSockets</li>
-        <li><strong>Cutting-Edge:</strong> Robotics control system using Java for Arduino/Raspberry Pi communication</li>
-      </ul>
-
-      <h2>Tools & Environment Setup</h2>
-      <div style="background:#f5f5f7;padding:1rem;border-radius:10px;margin:1rem 0;font-family:monospace;font-size:0.92rem">
-        <p><strong>Required:</strong></p>
-        <ul style="margin:0.5rem 0">
-          <li>JDK 23 or later (download from Oracle/Eclipse Adoptium)</li>
-          <li>IDE: IntelliJ IDEA Community (free) or VS Code + extensions</li>
-          <li>Maven or Gradle for dependency management</li>
-          <li>Git for version control</li>
-        </ul>
+      <h2>Why Java Still Dominates in 2026</h2>
+      <div class="spec-grid">
+        <div class="spec-card">
+          <h4><i class="fa-solid fa-building-columns"></i> Enterprise Standard</h4>
+          <p>90% of Fortune 500 companies rely on Java for their core financial and data infrastructure.</p>
+        </div>
+        <div class="spec-card">
+          <h4><i class="fa-solid fa-robot"></i> Robotics & IoT</h4>
+          <p>Java drives Android, JFR (Java for Robotics), and real-time embedded control systems.</p>
+        </div>
+        <div class="spec-card">
+          <h4><i class="fa-solid fa-cloud"></i> Microservices</h4>
+          <p>Spring Boot and Kubernetes form the backbone of modern, scalable cloud architectures.</p>
+        </div>
+        <div class="spec-card">
+          <h4><i class="fa-solid fa-brain"></i> AI Backend</h4>
+          <p>Java handles high-concurrency requests for ML models and heavy-duty data processing.</p>
+        </div>
       </div>
 
-      <h2>Recommended Learning Path</h2>
-      <table style="width:100%;margin:1.5rem 0;border-collapse:collapse;font-size:0.95rem">
-        <tr style="background:#f5f5f7">
-          <th style="padding:0.8rem;text-align:left;border:1px solid #ddd">Week</th>
-          <th style="padding:0.8rem;text-align:left;border:1px solid #ddd">Focus</th>
-          <th style="padding:0.8rem;text-align:left;border:1px solid #ddd">Project</th>
-        </tr>
-        <tr>
-          <td style="padding:0.8rem;border:1px solid #ddd">1–2</td>
-          <td style="padding:0.8rem;border:1px solid #ddd">Core syntax & Collections</td>
-          <td style="padding:0.8rem;border:1px solid #ddd">CLI Calculator</td>
-        </tr>
-        <tr style="background:#fafafa">
-          <td style="padding:0.8rem;border:1px solid #ddd">3–4</td>
-          <td style="padding:0.8rem;border:1px solid #ddd">OOP principles</td>
-          <td style="padding:0.8rem;border:1px solid #ddd">Library Management System</td>
-        </tr>
-        <tr>
-          <td style="padding:0.8rem;border:1px solid #ddd">5–6</td>
-          <td style="padding:0.8rem;border:1px solid #ddd">Advanced Java</td>
-          <td style="padding:0.8rem;border:1px solid #ddd">Multithreaded Chat Server</td>
-        </tr>
-        <tr style="background:#fafafa">
-          <td style="padding:0.8rem;border:1px solid #ddd">7–8</td>
-          <td style="padding:0.8rem;border:1px solid #ddd">Spring Boot & REST APIs</td>
-          <td style="padding:0.8rem;border:1px solid #ddd">REST API for Task Manager</td>
-        </tr>
-      </table>
-
-      <div style="margin-top:2rem;padding:1.2rem;background:linear-gradient(90deg,#e0e7ff,#fff);border-radius:12px;text-align:center">
-        <strong>Start your Java journey today!</strong><br>
-        <a href="../index.html#application" style="display:inline-block;margin-top:0.7rem;padding:0.7rem 1.5rem;background:#0b66ff;color:#fff;border-radius:8px;text-decoration:none;font-weight:700">Enroll in Java Development Internship</a>
+      <h2>The 8-Week Master Plan</h2>
+      
+      <h3>Phase 1: Core Fundamentals (Weeks 1-2)</h3>
+      <p>Master the syntax that makes Java the "write once, run anywhere" leader.</p>
+      <div class="spec-grid">
+        <div class="spec-card">
+          <h4><i class="fa-solid fa-terminal"></i> Concepts</h4>
+          <ul>
+            <li>Variables, Data Types, & Loops</li>
+            <li>Collections (ArrayList, HashMap)</li>
+            <li>String manipulation & I/O</li>
+          </ul>
+        </div>
+        <div class="spec-card">
+          <h4><i class="fa-solid fa-cube"></i> Project</h4>
+          <p><strong>CLI Expense Tracker:</strong> Build a terminal-based app to manage daily finances.</p>
+        </div>
       </div>
-    </article>
+
+      <h3>Phase 2: Object-Oriented Mastery (Weeks 3-4)</h3>
+      <div class="tip-box">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div>
+          <strong>Pro Tip:</strong> Focus heavily on Interfaces and Polymorphism. These are the building blocks of professional design patterns.
+        </div>
+      </div>
+      <div class="spec-grid">
+        <div class="spec-card">
+          <h4><i class="fa-solid fa-hierarchy"></i> Concepts</h4>
+          <ul>
+            <li>Inheritance & Encapsulation</li>
+            <li>Abstract Classes & Interfaces</li>
+            <li>Method Overloading vs Overriding</li>
+          </ul>
+        </div>
+        <div class="spec-card">
+          <h4><i class="fa-solid fa-book-bookmark"></i> Project</h4>
+          <p><strong>Library Management:</strong> Create a system to track books using OOP principles.</p>
+        </div>
+      </div>
+
+      <h2>Roadmap at a Glance</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Week</th>
+              <th>Focus Area</th>
+              <th>Milestone Project</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1–2</td>
+              <td>Core Syntax & Collections</td>
+              <td>CLI Calculator & Tracker</td>
+            </tr>
+            <tr>
+              <td>3–4</td>
+              <td>OOP Design Patterns</td>
+              <td>Library Management System</td>
+            </tr>
+            <tr>
+              <td>5–6</td>
+              <td>Advanced Multithreading</td>
+              <td>Real-time Chat Server</td>
+            </tr>
+            <tr>
+              <td>7–8</td>
+              <td>Spring Boot & REST</td>
+              <td>Enterprise Task Manager API</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Environment Setup</h2>
+      <div class="env-box">
+        <p><strong>// Required Stack for 2026</strong></p>
+        <p><strong>JDK:</strong> Version 23 or 25 (Adoptium Recommended)</p>
+        <p><strong>IDE:</strong> IntelliJ IDEA Community or VS Code</p>
+        <p><strong>Build Tool:</strong> Maven / Gradle</p>
+        <p><strong>VCS:</strong> Git + GitHub</p>
+      </div>
+
+      <div class="cta-box" id="apply">
+        <h2>Ready to Build the Future?</h2>
+        <p>Join our 2026 Java Development Internship and work on production-level projects under industry mentors.</p>
+        <a href="../index.html#application" class="btn-apply">Apply for Internship</a>
+      </div>
+
+    </div>
   </main>
-  <footer class="footer">© 2025 Vertecz Solutions. All rights reserved.</footer>
+
+  <footer>
+    <p>© 2026 Vertecz Solutions. Empowering the next generation of developers.</p>
+  </footer>
+
 </body>
 </html>

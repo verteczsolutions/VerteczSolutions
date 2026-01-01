@@ -3,58 +3,487 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Python Internship: Best Projects for Absolute Beginners — Vertecz Solutions</title>
-  <meta name="description" content="Project ideas for Python beginners to build during an internship: scripts, small web apps, and data tasks." />
+  <title>Python Internship: Ultimate Beginner Projects | Vertecz Solutions</title>
+  <meta name="description" content="A complete guide for Python interns: Build CLI tools, Web Apps, and master data scripts with Vertecz Solutions." />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
   <style>
-    body{font-family:system-ui;color:#111;margin:0;background:#f7f7fb;line-height:1.6}
-    .container{max-width:900px;margin:2rem auto;padding:1rem}
-    article h1{font-size:2rem;margin-bottom:.5rem;color:#111}
-    article h2{font-size:1.5rem;margin-top:1.5rem;margin-bottom:.8rem;color:#222}
-    article h3{font-size:1.1rem;margin-top:1.2rem;margin-bottom:.6rem}
-    table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.95rem}
-    th,td{padding:1rem;text-align:left;border:1px solid #e5e5e5}
-    th{background:#f5f5f7;font-weight:700}
-    tr:nth-child(even){background:#fafafa}
-    .footer{padding:1.5rem;text-align:center;color:#666}
-    .tip-box{background:#e0e7ff;padding:1.2rem;border-radius:10px;border-left:4px solid #0b66ff;margin:1.5rem 0}
-    @media (max-width:768px){
-      .container{padding:1rem;margin:1.5rem auto}
-      article h1{font-size:1.6rem;margin-bottom:.3rem}
-      article h2{font-size:1.3rem;margin-top:1.2rem}
-      article h3{font-size:1rem}
-      table{font-size:0.85rem}
-      th,td{padding:.7rem .5rem}
+    :root {
+      /* BRAND COLORS EXTRACTED FROM LOGO */
+      --brand-blue: #0056b3;   /* Left Triangle */
+      --brand-green: #4dbf62;  /* Top Triangle */
+      --brand-orange: #f58220; /* Right Triangle */
+      
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --text: #334155;
+      --text-light: #64748b;
+      
+      --radius: 16px;
+      --shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
     }
-    @media (max-width:480px){
-      .container{padding:.75rem;margin:1rem auto}
-      article h1{font-size:1.35rem;line-height:1.3}
-      article h2{font-size:1.15rem;margin-top:1rem}
-      article h3{font-size:0.95rem}
-      p{font-size:0.95rem}
-      table{margin:1rem 0;overflow-x:auto;display:block;font-size:0.8rem}
-      th,td{padding:.6rem .4rem}
-      .tip-box{padding:.9rem;margin:1rem 0;font-size:0.9rem}
-      figure{margin:1rem 0}
-      figcaption{font-size:0.85rem}
-      .footer{padding:1rem .75rem;font-size:0.75rem}
+
+    /* Base Styles */
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--text);
+      margin: 0;
+      background: var(--light);
+      line-height: 1.7;
+    }
+
+    a { text-decoration: none; color: inherit; transition: 0.3s; }
+    h1, h2, h3 { color: var(--dark); font-weight: 800; letter-spacing: -0.025em; }
+    p { margin-bottom: 1.5rem; font-size: 1.05rem; }
+
+    /* Header / Nav */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 0.8rem 0;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--dark);
+    }
+
+    /* Logo Image Styling */
+    .logo-img {
+      height: 45px; /* Adjust based on actual logo size */
+      width: auto;
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    
+    .nav-links a {
+      font-weight: 600;
+      color: var(--text);
+      font-size: 0.95rem;
+      position: relative;
+    }
+    
+    .nav-links a:not(.btn-nav-apply):hover { color: var(--brand-blue); }
+
+    .btn-nav-apply {
+      background: var(--brand-blue);
+      color: var(--white) !important;
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      box-shadow: 0 4px 12px rgba(0, 86, 179, 0.2);
+    }
+    .btn-nav-apply:hover { background: var(--brand-orange); transform: translateY(-2px); }
+
+    /* Hero Section */
+    .hero {
+      /* Gradient using brand colors */
+      background: linear-gradient(135deg, var(--brand-blue) 0%, #003d80 100%);
+      color: var(--white);
+      padding: 5rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative Shapes in Background */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50px; left: -50px;
+      width: 200px; height: 200px;
+      background: var(--brand-green);
+      opacity: 0.1;
+      border-radius: 50%;
+      filter: blur(60px);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -50px; right: -50px;
+      width: 300px; height: 300px;
+      background: var(--brand-orange);
+      opacity: 0.15;
+      border-radius: 50%;
+      filter: blur(80px);
+    }
+
+    .hero h1 {
+      color: var(--white);
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+      position: relative;
+      font-weight: 300;
+    }
+
+    .meta-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Main Content Layout */
+    .container {
+      max-width: 900px;
+      margin: -4rem auto 0 auto; /* Overlap hero */
+      padding: 0 1.5rem 4rem 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .content-card {
+      background: var(--white);
+      padding: 3rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 3rem;
+    }
+
+    /* Typography inside article */
+    article h2 {
+      font-size: 2rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    article h2 i { color: var(--brand-green); font-size: 1.5rem; }
+
+    .lead-text {
+      font-size: 1.2rem;
+      color: var(--text);
+      font-weight: 400;
+      line-height: 1.8;
+      border-left: 4px solid var(--brand-orange);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      background: #fff8f2;
+      padding: 1.5rem;
+      border-radius: 0 12px 12px 0;
+    }
+
+    /* Project Cards Grid */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .project-card {
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      border-color: var(--brand-blue);
+    }
+
+    .card-img { height: 150px; width: 100%; object-fit: cover; }
+    .card-body { padding: 1.5rem; }
+    .card-body h3 { font-size: 1.25rem; margin-top: 0; margin-bottom: 0.5rem; }
+    
+    .tech-stack { margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .tech-badge {
+      background: #eff6ff; color: var(--brand-blue);
+      font-size: 0.75rem; padding: 0.2rem 0.6rem;
+      border-radius: 6px; font-weight: 600;
+    }
+
+    /* Code Blocks */
+    .code-block {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 1.5rem;
+      border-radius: 10px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      position: relative;
+    }
+    .code-block::before {
+      content: 'main.py';
+      position: absolute;
+      top: 0; right: 0;
+      background: rgba(255,255,255,0.1);
+      padding: 4px 10px;
+      font-size: 0.7rem;
+      border-bottom-left-radius: 10px;
+      color: #94a3b8;
+    }
+    .kw { color: #c678dd; } /* keyword */
+    .str { color: #98c379; } /* string */
+    .fn { color: #61afef; } /* function */
+    .com { color: #5c6370; font-style: italic; } /* comment */
+
+    /* Apply Section */
+    .apply-box {
+      background: var(--dark);
+      background-image: radial-gradient(circle at top right, #1e293b 0%, var(--dark) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 4rem 2rem;
+      border-radius: var(--radius);
+      margin-top: 4rem;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .apply-box h2 { color: var(--white); margin-top: 0; }
+    
+    .btn-apply-big {
+      display: inline-block;
+      background: var(--brand-orange);
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 1rem 3rem;
+      border-radius: 50px;
+      margin-top: 2rem;
+      box-shadow: 0 0 20px rgba(245, 130, 32, 0.5);
+      animation: pulse 2s infinite;
+    }
+    .btn-apply-big:hover { background: #e06c0d; }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(245, 130, 32, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(245, 130, 32, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(245, 130, 32, 0); }
+    }
+
+    /* Resources List */
+    .resource-list {
+      background: #f1f5f9;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 5px solid var(--brand-green);
+    }
+    .resource-list li { margin-bottom: 0.8rem; }
+    .resource-list i { color: var(--brand-green); margin-right: 8px; }
+
+    /* Footer */
+    .footer {
+      background: var(--white);
+      border-top: 1px solid #e2e8f0;
+      padding: 4rem 1.5rem;
+      text-align: center;
+      margin-top: 3rem;
+      color: var(--text-light);
+    }
+    .footer-links { margin: 1.5rem 0; display: flex; justify-content: center; gap: 1.5rem; }
+    .footer-links a { color: var(--dark); font-weight: 600; }
+    .footer-links a:hover { color: var(--brand-blue); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .nav-links { display: none; } /* Add JS hamburger menu for real prod */
+      .content-card { padding: 1.5rem; }
+      .lead-text { font-size: 1rem; }
+      .logo-img { height: 35px; }
     }
   </style>
 </head>
 <body>
-  <header style="background:#fff;padding:.75rem 1rem;box-shadow:0 6px 20px rgba(2,6,23,0.04)"><div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center"><div style="font-weight:800">Vertecz Solutions</div><nav><a href="../index.html">Home</a> | <a href="index.html">Blog</a></nav></div></header>
+
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo-wrapper">
+        <img src="vertecz_logo.png" alt="Vertecz Solutions Logo" class="logo-img">
+        <span>Vertecz</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="https://verteczsolutions.codes" target="_blank">Our Website</a>
+        <a href="index.html" style="color:var(--brand-blue)">Blog</a>
+        <a href="#apply" class="btn-nav-apply">Apply Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <span class="meta-tag">Internship Guide 2025</span>
+    <h1>Start Your Python Journey Here</h1>
+    <p>Don't just watch tutorials. Build real-world applications that get you hired. A comprehensive guide for the modern intern.</p>
+  </div>
+
   <main class="container">
-    <article>
-      <h1>Python Internship: Best Projects for Absolute Beginners</h1>
-      <p style="color:#555">Hands-on project ideas to build confidence: CLI tools, data scripts, Flask mini apps, and simple automation.</p>
-      <h2>Starter Projects</h2>
+    <article class="content-card">
+      
+      <div class="lead-text">
+        <strong>Why this matters:</strong> Most computer science students graduate with theory but lack the "muscle memory" of coding. At Vertecz Solutions, we believe the only way to learn is by doing.
+      </div>
+
+            <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Coding Environment" style="width:100%; border-radius: 12px; margin-bottom: 2rem;">
+
+      <h2><i class="fas fa-tools"></i> 1. The Prerequisites</h2>
+      <p>Before diving into projects, ensure your environment is professional-grade. This is the first thing we check during internship interviews.</p>
       <ul>
-        <li>Expense tracker (CSV + basic plotting)</li>
-        <li>CLI quiz app</li>
-        <li>Flask micro blog</li>
+        <li><strong>IDE:</strong> VS Code (Industry Standard) or PyCharm.</li>
+        <li><strong>Version Control:</strong> Install Git and create a GitHub account.</li>
+        <li><strong>Virtual Environments:</strong> Always use <code>venv</code> to manage dependencies.</li>
       </ul>
-      <div style="margin-top:1rem;padding:1rem;border-radius:12px;background:#fff;border:1px solid #eee">Deploy small apps and include instructions to run locally.</div>
+
+      <h2><i class="fas fa-laptop-code"></i> 2. The Starter Project: Expense Tracker</h2>
+      <p>Let's build something useful immediately. We will create a script that saves your daily expenses to a CSV file. This teaches you <strong>File I/O</strong> and <strong>Data Persistence</strong>.</p>
+      
+      <p>Here is the core logic you need:</p>
+
+      <div class="code-block">
+<span class="kw">import</span> csv
+<span class="kw">from</span> datetime <span class="kw">import</span> datetime
+
+<span class="kw">def</span> <span class="fn">add_expense</span>(item, amount):
+    <span class="com"># Create a timestamp</span>
+    date = datetime.now().strftime(<span class="str">"%Y-%m-%d"</span>)
+    
+    <span class="com"># Append to CSV file</span>
+    <span class="kw">with</span> open(<span class="str">'expenses.csv'</span>, <span class="str">'a'</span>, newline=<span class="str">''</span>) <span class="kw">as</span> file:
+        writer = csv.writer(file)
+        writer.writerow([date, item, amount])
+    
+    <span class="kw">print</span>(<span class="str">f"Saved: {item} - ${amount}"</span>)
+
+<span class="com"># Example Usage</span>
+add_expense(<span class="str">"Coffee"</span>, <span class="str">4.50</span>)
+      </div>
+
+      <h2><i class="fas fa-layer-group"></i> 3. Choose Your Specialization</h2>
+      <p>Once you are comfortable with basic scripts, pick a lane. Here are the top projects Vertecz recommends for 2025:</p>
+
+      <div class="project-grid">
+        <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img" alt="Web Dev">
+          <div class="card-body">
+            <h3>Flask Web App</h3>
+            <p>Don't stay in the terminal forever. Build a simple "To-Do List" website using Flask and deploy it to the web.</p>
+            <div class="tech-stack">
+              <span class="tech-badge">Flask</span>
+              <span class="tech-badge">Jinja2</span>
+              <span class="tech-badge">HTML/CSS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img" alt="Data Science">
+          <div class="card-body">
+            <h3>Stock Visualizer</h3>
+            <p>Use the `yfinance` library to pull real stock data and `Matplotlib` to plot trend lines.</p>
+            <div class="tech-stack">
+              <span class="tech-badge">Pandas</span>
+              <span class="tech-badge">Matplotlib</span>
+              <span class="tech-badge">NumPy</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img" alt="Automation">
+          <div class="card-body">
+            <h3>Price Tracker Bot</h3>
+            <p>A script that checks Amazon prices every hour and emails you when there is a discount.</p>
+            <div class="tech-stack">
+              <span class="tech-badge">Requests</span>
+              <span class="tech-badge">BeautifulSoup</span>
+              <span class="tech-badge">SMTP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2><i class="fas fa-users"></i> 4. Soft Skills for Interns</h2>
+      <p>Coding is only 50% of the job. To succeed at Vertecz (or anywhere else), you need to master these:</p>
+      <div style="background: #f8fafc; padding: 1.5rem; border-radius: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+        <div>
+          <h4 style="margin-top:0; color: var(--brand-blue);">Communication</h4>
+          <p style="font-size: 0.95rem; margin-bottom:0;">Don't vanish for 3 days to fix a bug. Ask for help early. Learn to write clear documentation for your code.</p>
+        </div>
+        <div>
+          <h4 style="margin-top:0; color: var(--brand-green);">Git Etiquette</h4>
+          <p style="font-size: 0.95rem; margin-bottom:0;">Write meaningful commit messages. Don't push broken code to the main branch. Learn how to handle merge conflicts.</p>
+        </div>
+      </div>
+
+      <h2 style="margin-top: 3rem;">Useful Resources</h2>
+      <ul class="resource-list">
+        <li><i class="fas fa-external-link-alt"></i> <a href="#">Official Python Documentation</a></li>
+        <li><i class="fas fa-external-link-alt"></i> <a href="#">Flask Mega-Tutorial by Miguel Grinberg</a></li>
+        <li><i class="fas fa-external-link-alt"></i> <a href="#">Automate the Boring Stuff with Python</a></li>
+      </ul>
+
+      <div id="apply" class="apply-box">
+        <h2>Ready to Code with Vertecz?</h2>
+        <p>Our internship program provides mentorship, real-world projects, and a pathway to a full-time career.</p>
+        <a href="https://verteczsolutions.codes" class="btn-apply-big">Apply for Internship <i class="fas fa-arrow-right"></i></a>
+        <br><br>
+        <small style="opacity: 0.7;">Applications are reviewed on a rolling basis.</small>
+      </div>
+
     </article>
   </main>
-  <footer class="footer">© 2025 Vertecz Solutions. All rights reserved.</footer>
+
+  <footer class="footer">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <div style="margin-bottom: 1.5rem;">
+        <img src="vertecz_logo.png" alt="Vertecz" style="height: 40px; opacity: 0.8;">
+      </div>
+      <p>Empowering the next generation of developers with hands-on experience and expert mentorship.</p>
+      
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="https://verteczsolutions.codes">Vertecz Official</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Contact Us</a>
+      </div>
+      
+      <p style="font-size: 0.85rem; opacity: 0.6;">© 2025 Vertecz Solutions. All rights reserved.</p>
+    </div>
+  </footer>
+
 </body>
 </html>

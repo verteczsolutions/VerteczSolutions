@@ -3,237 +3,263 @@
 <head>
   <meta charset="UTF-8" />
   <title>Vertecz Solutions Blog | Virtual Internships, Projects & Career Tips</title>
-  <meta name="description" content="Read guides on virtual internships, GitHub projects, web development, Java, Python, data science, and more. Learn how to build your portfolio and get certified." />
+  <meta name="description" content="Read guides on virtual internships, GitHub projects, web development, Java, Python, data science, and more." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- <meta name="robots" content="index, follow"> -->
   <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #f5f5f7;
-      --card-bg: #ffffff;
-      --accent: #0b66ff;
-      --accent-soft: rgba(11, 102, 255, 0.08);
-      --text-main: #151515;
-      --text-muted: #555;
-      --border-subtle: #e2e2e5;
-      --radius-lg: 18px;
-      --radius-full: 999px;
-      --shadow-soft: 0 14px 35px rgba(15, 23, 42, 0.08);
-      --max-width: 1100px;
+      --primary: #0b66ff;
+      --primary-dark: #004ecc;
+      --bg: #0f172a;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --text-white: #f8fafc;
+      --text-dim: #94a3b8;
+      --accent-gradient: linear-gradient(135deg, #0b66ff 0%, #4f46e5 100%);
+      --radius: 24px;
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(11, 102, 255, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(79, 70, 229, 0.15) 0px, transparent 50%);
+      color: var(--text-white);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
+    /* Navbar Glassmorphism */
     .navbar {
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(245, 245, 247, 0.88);
-      border-bottom: 1px solid rgba(226, 226, 229, 0.8);
+      z-index: 1000;
+      backdrop-filter: blur(16px);
+      background: rgba(15, 23, 42, 0.8);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 1rem 0;
     }
 
     .nav-inner {
-      max-width: var(--max-width);
+      max-width: 1200px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.75rem 1.25rem;
+      padding: 0 1.5rem;
     }
 
     .nav-left {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: #fff;
     }
 
     .nav-logo-pill {
-      width: 32px;
-      height: 32px;
-      border-radius: 12px;
-      background: radial-gradient(circle at 20% 20%, #4f46e5, #0b66ff);
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--accent-gradient);
+      box-shadow: 0 0 20px rgba(11, 102, 255, 0.4);
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-size: 0.95rem;
+      gap: 1.5rem;
     }
 
     .nav-links a {
-      color: #222;
-      padding: 0.35rem 0.75rem;
-      border-radius: 999px;
-      transition: background 0.15s ease, color 0.15s ease;
-    }
-
-    .nav-links a:hover {
-      background: rgba(0,0,0,0.04);
-    }
-
-    .nav-cta {
-      padding: 0.45rem 0.95rem;
-      border-radius: var(--radius-full);
-      border: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      background: #111827;
-      color: #fff;
-      cursor: pointer;
-      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.18);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .nav-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.22);
-    }
-
-    @media (max-width: 640px) {
-      .nav-links { display:none; }
-    }
-
-    .page {
-      max-width: var(--max-width);
-      margin: 1.75rem auto 3rem;
-      padding: 0 1.25rem 3rem;
-    }
-
-    .blog-header {
-      margin-bottom: 1.5rem;
-    }
-
-    .blog-header h1 {
-      font-size: clamp(1.8rem, 3vw, 2.2rem);
-      margin: 0 0 0.35rem;
-      letter-spacing: -0.02em;
-    }
-
-    .blog-header p {
-      margin: 0;
-      color: var(--text-muted);
+      color: var(--text-dim);
+      text-decoration: none;
+      font-weight: 500;
       font-size: 0.95rem;
     }
 
+    .nav-links a:hover { color: var(--primary); }
+
+    .nav-cta {
+      padding: 0.6rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--accent-gradient);
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(11, 102, 255, 0.3);
+    }
+
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(11, 102, 255, 0.5); }
+
+    /* Header Section */
+    .page {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .blog-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .blog-header h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #fff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.04em;
+    }
+
+    .blog-header p {
+      color: var(--text-dim);
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Posts Grid */
     .posts-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
     }
 
     .post-card {
       background: var(--card-bg);
-      border-radius: var(--radius-lg);
-      padding: 1.2rem 1.3rem 1.4rem;
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      position: relative;
       display: flex;
       flex-direction: column;
-      gap: 0.45rem;
+      height: 100%;
+      overflow: hidden;
     }
 
+    .post-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 4px;
+      background: var(--accent-gradient);
+      opacity: 0;
+    }
+
+    .post-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(11, 102, 255, 0.4);
+      transform: translateY(-10px);
+    }
+
+    .post-card:hover::before { opacity: 1; }
+
     .post-tag {
-      display: inline-flex;
-      align-items: center;
-      font-size: 0.75rem;
-      background: var(--accent-soft);
-      color: var(--accent);
-      padding: 0.2rem 0.55rem;
+      width: fit-content;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: rgba(11, 102, 255, 0.15);
+      color: var(--primary);
+      padding: 0.4rem 1rem;
       border-radius: 999px;
-      font-weight: 500;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
     }
 
     .post-title {
-      font-size: 1.05rem;
-      margin: 0.1rem 0;
-      color: #111827;
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      color: #fff;
     }
 
     .post-desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      margin-bottom: 2rem;
+      flex-grow: 1;
     }
 
     .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 0.8rem;
-      color: #6b7280;
-      margin-top: 0.1rem;
-    }
-
-    .post-actions {
-      margin-top: 0.7rem;
+      color: #64748b;
+      margin-bottom: 1.5rem;
     }
 
     .post-link {
-      font-size: 0.86rem;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 0.25rem;
-      color: var(--accent);
+      gap: 8px;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
     }
 
-    .post-link span {
-      font-size: 1rem;
-    }
+    .post-link i { font-size: 0.8rem; transition: transform 0.3s; }
+    .post-card:hover .post-link i { transform: translateX(5px); }
 
+    /* Footer */
     .footer {
-      border-top: 1px solid rgba(209, 213, 219, 0.8);
-      padding: 1.25rem 1.25rem 2rem;
-      font-size: 0.82rem;
-      color: #6b7280;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 4rem 1.5rem;
+      margin-top: 5rem;
+      border-top: 1px solid var(--glass-border);
     }
 
     .footer-inner {
-      max-width: var(--max-width);
+      max-width: 1200px;
       margin: 0 auto;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
+      align-items: center;
     }
 
     .footer-links a {
-      color: #6b7280;
-      text-decoration: none;
+      color: var(--text-dim);
+      margin-left: 1.5rem;
+      font-size: 0.9rem;
     }
 
-    .footer-links a:hover {
-      text-decoration: underline;
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .posts-grid { grid-template-columns: 1fr; }
+      .blog-header h1 { font-size: 2.5rem; }
+      .footer-inner { flex-direction: column; gap: 2rem; text-align: center; }
+      .footer-links a { margin: 0 0.75rem; }
     }
+    .nav-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-right: -10px;
+}
+
   </style>
 </head>
 <body>
+
   <header class="navbar">
     <div class="nav-inner">
       <div class="nav-left">
-        <div class="nav-logo-pill"></div>
+        <img src="vertecz_logo.png" alt="Vertecz Solutions Logo" class="nav-logo" />
         <span>Vertecz Solutions</span>
       </div>
       <nav class="nav-links">
@@ -250,161 +276,112 @@
 
   <main class="page">
     <section class="blog-header">
-      <h1>VerteczSolutions Blog</h1>
-      <p>Guides on virtual internships, GitHub projects, resumes, and certificates for students & freshers.</p>
+      <h1>Developer Insights</h1>
+      <p>Your ultimate guide to building a future-proof tech career through internships and open-source mastery.</p>
     </section>
 
     <section class="posts-grid">
-      <!-- Each card = one post -->
       <article class="post-card">
-        <span class="post-tag">Guide</span>
-        <h2 class="post-title">Top 10 Free Online Internships for Students in 2025 (With Certificates)</h2>
+        <span class="post-tag"><i class="fas fa-bookmark"></i> Guide</span>
+        <h2 class="post-title">Top 10 Free Online Internships for Students in 2025</h2>
         <p class="post-desc">Discover beginner-friendly online internships you can join from home and still earn a verified certificate.</p>
-        <div class="post-meta">8–10 min read · Updated 2025</div>
-        <div class="post-actions">
-          <a class="post-link" href="free-online-internships-2025.html">
-            Read article <span>→</span>
-          </a>
-        </div>
+        <div class="post-meta"><i class="far fa-clock"></i> 10 min read · <i class="far fa-calendar"></i> 2025</div>
+        <a class="post-link" href="free-online-internships-2025.html">Read article <i class="fas fa-arrow-right"></i></a>
       </article>
 
       <article class="post-card">
-        <span class="post-tag">Web Dev</span>
-        <h2 class="post-title">Beginner-Friendly Web Development Internship Projects for Your Resume</h2>
+        <span class="post-tag"><i class="fas fa-code"></i> Web Dev</span>
+        <h2 class="post-title">Web Development Internship Projects for Your Resume</h2>
         <p class="post-desc">Simple yet impressive HTML, CSS, and JavaScript projects you can build and host on GitHub as an intern.</p>
-        <div class="post-meta">7–9 min read</div>
-        <div class="post-actions">
-          <a class="post-link" href="web-dev-internship-projects.html">
-            Read article <span>→</span>
-          </a>
-        </div>
+        <div class="post-meta"><i class="far fa-clock"></i> 9 min read</div>
+        <a class="post-link" href="web-dev-internship-projects.html">Read article <i class="fas fa-arrow-right"></i></a>
       </article>
 
       <article class="post-card">
-        <span class="post-tag">GitHub</span>
+        <span class="post-tag"><i class="fab fa-github"></i> GitHub</span>
         <h2 class="post-title">How to Submit GitHub Projects as Internship Assignments</h2>
         <p class="post-desc">Step-by-step process to push code, manage branches, and share clean GitHub links with mentors.</p>
-        <div class="post-meta">6–8 min read</div>
-        <div class="post-actions">
-          <a class="post-link" href="github-submissions-guide.html">
-            Read article <span>→</span>
-          </a>
-        </div>
+        <div class="post-meta"><i class="far fa-clock"></i> 8 min read</div>
+        <a class="post-link" href="github-submissions-guide.html">Read article <i class="fas fa-arrow-right"></i></a>
       </article>
 
       <article class="post-card">
-        <span class="post-tag">Python</span>
+        <span class="post-tag"><i class="fab fa-python"></i> Python</span>
         <h2 class="post-title">Python Internship: Best Projects for Absolute Beginners</h2>
         <p class="post-desc">From calculators to expense trackers, start building Python projects that recruiters actually like.</p>
-        <div class="post-meta">7–9 min read</div>
-        <div class="post-actions">
-          <a class="post-link" href="python-internship-projects.html">
-            Read article <span>→</span>
-          </a>
-        </div>
+        <div class="post-meta"><i class="far fa-clock"></i> 9 min read</div>
+        <a class="post-link" href="python-internship-projects.html">Read article <i class="fas fa-arrow-right"></i></a>
       </article>
 
       <article class="post-card">
-        <span class="post-tag">Portfolio</span>
-        <h2 class="post-title">How to Build a Strong Portfolio During Your Virtual Internship</h2>
+        <span class="post-tag"><i class="fas fa-user-tie"></i> Portfolio</span>
+        <h2 class="post-title">How to Build a Strong Portfolio During Your Internship</h2>
         <p class="post-desc">Turn your weekly internship tasks into a portfolio that stands out in placements and interviews.</p>
-        <div class="post-meta">7–8 min read</div>
-        <div class="post-actions">
-          <a class="post-link" href="build-portfolio-during-virtual-internship.html">
-            Read article <span>→</span>
-          </a>
-        </div>
+        <div class="post-meta"><i class="far fa-clock"></i> 8 min read</div>
+        <a class="post-link" href="build-portfolio-during-virtual-internship.html">Read article <i class="fas fa-arrow-right"></i></a>
       </article>
 
       <article class="post-card">
-        <span class="post-tag">Data Science</span>
+        <span class="post-tag"><i class="fas fa-chart-line"></i> Data Science</span>
         <h2 class="post-title">Data Science Internship Tasks — What You Actually Do</h2>
         <p class="post-desc">Understand what real data science interns work on: EDA, visualizations, models, and reports.</p>
-        <div class="post-meta">6–8 min read</div>
-        <div class="post-actions">
-          <a class="post-link" href="data-science-internship-tasks.html">
-            Read article <span>→</span>
-          </a>
-        </div>
+        <div class="post-meta"><i class="far fa-clock"></i> 8 min read</div>
+        <a class="post-link" href="data-science-internship-tasks.html">Read article <i class="fas fa-arrow-right"></i></a>
       </article>
 
       <article class="post-card">
-        <span class="post-tag">Java</span>
+        <span class="post-tag"><i class="fab fa-java"></i> Java</span>
         <h2 class="post-title">Java Internship Roadmap: From Basics to Project Submission</h2>
         <p class="post-desc">A simple roadmap to go from “Hello World” to submitting your first Java console project as an intern.</p>
-        <div class="post-meta">7–9 min read</div>
-        <div class="post-actions">
-          <a class="post-link" href="java-internship-roadmap.html">
-            Read article <span>→</span>
-          </a>
-        </div>
+        <div class="post-meta"><i class="far fa-clock"></i> 9 min read</div>
+        <a class="post-link" href="java-internship-roadmap.html">Read article <i class="fas fa-arrow-right"></i></a>
       </article>
 
       <article class="post-card">
-        <span class="post-tag">ML</span>
-        <h2 class="post-title">Machine Learning Mini Projects for Interns (With GitHub Tips)</h2>
+        <span class="post-tag"><i class="fas fa-brain"></i> Machine Learning</span>
+        <h2 class="post-title">Machine Learning Mini Projects for Interns</h2>
         <p class="post-desc">Small but powerful ML projects you can complete in a week and showcase on your profile.</p>
-        <div class="post-meta">7–9 min read</div>
-        <div class="post-actions">
-          <a class="post-link" href="ml-mini-projects-for-interns.html">
-            Read article <span>→</span>
-          </a>
-        </div>
+        <div class="post-meta"><i class="far fa-clock"></i> 9 min read</div>
+        <a class="post-link" href="ml-mini-projects-for-interns.html">Read article <i class="fas fa-arrow-right"></i></a>
       </article>
 
       <article class="post-card">
-        <span class="post-tag">Hardware</span>
-        <h2 class="post-title">Best Laptops for Developers in 2025: MacBook, Dell, ThinkPad & More</h2>
-        <p class="post-desc">Comprehensive guide to choosing the right laptop for web dev, data science, and software engineering work.</p>
-        <div class="post-meta">9–11 min read</div>
-        <div class="post-actions">
-          <a class="post-link" href="best-laptops-developers-2025.html">
-            Read article <span>→</span>
-          </a>
-        </div>
+        <span class="post-tag"><i class="fas fa-laptop-code"></i> Hardware</span>
+        <h2 class="post-title">Best Laptops for Developers in 2025</h2>
+        <p class="post-desc">Comprehensive guide to choosing the right laptop for web dev, data science, and engineering work.</p>
+        <div class="post-meta"><i class="far fa-clock"></i> 11 min read</div>
+        <a class="post-link" href="best-laptops-developers-2025.html">Read article <i class="fas fa-arrow-right"></i></a>
       </article>
 
       <article class="post-card">
-        <span class="post-tag">Hardware</span>
-        <h2 class="post-title">PC System Configuration Guide: Building Your Own Gaming & Work PC</h2>
-        <p class="post-desc">Complete guide to selecting CPU, GPU, RAM, storage, PSU, and cooling for budget builds to high-end setups.</p>
-        <div class="post-meta">10–12 min read</div>
-        <div class="post-actions">
-          <a class="post-link" href="pc-system-configuration-guide.html">
-            Read article <span>→</span>
-          </a>
-        </div>
+        <span class="post-tag"><i class="fas fa-microchip"></i> Hardware</span>
+        <h2 class="post-title">PC System Configuration Guide: Gaming & Work</h2>
+        <p class="post-desc">Complete guide to selecting CPU, GPU, RAM, storage, and cooling for all types of builds.</p>
+        <div class="post-meta"><i class="far fa-clock"></i> 12 min read</div>
+        <a class="post-link" href="pc-system-configuration-guide.html">Read article <i class="fas fa-arrow-right"></i></a>
       </article>
 
       <article class="post-card">
-        <span class="post-tag">Gaming</span>
-        <h2 class="post-title">Gaming PC Setup Guide: Monitors, Keyboards, Mice & Ergonomics</h2>
-        <p class="post-desc">Everything you need for the perfect gaming desk: peripherals, RGB, cable management, and chair recommendations.</p>
-        <div class="post-meta">9–11 min read</div>
-        <div class="post-actions">
-          <a class="post-link" href="gaming-pc-setup-guide.html">
-            Read article <span>→</span>
-          </a>
-        </div>
+        <span class="post-tag"><i class="fas fa-gamepad"></i> Gaming</span>
+        <h2 class="post-title">Gaming PC Setup Guide: Monitors & Ergonomics</h2>
+        <p class="post-desc">Everything you need for the perfect gaming desk: peripherals, RGB, and cable management.</p>
+        <div class="post-meta"><i class="far fa-clock"></i> 11 min read</div>
+        <a class="post-link" href="gaming-pc-setup-guide.html">Read article <i class="fas fa-arrow-right"></i></a>
       </article>
 
       <article class="post-card">
-        <span class="post-tag">Business Tech</span>
-        <h2 class="post-title">Business Technology Trends 2025: AI, Automation & Digital Transformation</h2>
-        <p class="post-desc">Enterprise tech trends: AI adoption, no-code platforms, zero-trust security, and skills gap insights for 2025.</p>
-        <div class="post-meta">10–12 min read</div>
-        <div class="post-actions">
-          <a class="post-link" href="business-technology-trends-2025.html">
-            Read article <span>→</span>
-          </a>
-        </div>
+        <span class="post-tag"><i class="fas fa-briefcase"></i> Business Tech</span>
+        <h2 class="post-title">Business Technology Trends 2025</h2>
+        <p class="post-desc">Enterprise tech trends: AI adoption, no-code platforms, and zero-trust security insights.</p>
+        <div class="post-meta"><i class="far fa-clock"></i> 12 min read</div>
+        <a class="post-link" href="business-technology-trends-2025.html">Read article <i class="fas fa-arrow-right"></i></a>
       </article>
     </section>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      <span>© 2025 Vertecz Solutions. All rights reserved.</span>
+      <span>© 2025 Vertecz Solutions. Empowering Future Talent.</span>
       <div class="footer-links">
         <a href="/terms.html">Terms</a>
         <a href="/privacy.html">Privacy</a>

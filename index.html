@@ -6,7 +6,7 @@
 
 <meta name="description" content="100% online virtual internship with weekly tasks, GitHub submissions, and free certification. Learn Web Development, Java, Python, Data Science, Machine Learning & more. Apply Now!">
 
-<meta name="keywords" content="virtual internship, online internship, free internship with certificate, web development internship, java internship, python internship, data science internship, ML internship, internship for students online, internship India">
+<meta name="keywords" content="virtual internship,free internship, online internship, free internship with certificate, web development internship, java internship, python internship, data science internship, ML internship, internship for students online, internship India">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- <meta name="robots" content="index, follow"> -->
@@ -23,6 +23,8 @@
     
     <link href="https://cdn.tailwindcss.com" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
     <style>
         * {
             margin: 0;
@@ -353,6 +355,12 @@
             border-color: var(--primary-color);
             box-shadow: 0 12px 32px rgba(11, 102, 255, 0.1);
             transform: translateY(-8px);
+        }
+        .logo-img {
+            width: 60px;        /* adjust as needed */
+            height: auto;
+            margin-right: -8px;
+            vertical-align: middle;
         }
 
         .step-number {
@@ -1113,6 +1121,11 @@
             color: var(--text-gray);
             font-size: 0.95rem;
             margin: 0;
+        }
+
+        .contact-item-content a{
+             text-decoration: none;
+            color: inherit; /* keeps text same color as surrounding text */
         }
 
         .contact-form {
@@ -2229,7 +2242,7 @@
     <nav class="navbar">
         <div class="navbar-container">
             <div class="navbar-logo" onclick="scrollToSection('home')">
-                <i class="fas fa-rocket"></i> VerteczSolutions
+                <img src="vertecz_logo.png" alt="VerteczSolutions Logo" class="logo-img"> VerteczSolutions
             </div>
             <div class="nav-links" id="navLinks">
                 <a onclick="scrollToSection('home')">Home</a>
@@ -2603,7 +2616,7 @@
                             </div>
                             <div class="contact-item-content">
                                 <h4>Email</h4>
-                                <p>verteczsolutions@gmail.com</p>
+                                <a href="verteczsolutions@gmail.com" target="_blank">verteczsolutions@gmail.com</a>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -2659,11 +2672,11 @@
             </div>
             <div class="footer-right">
                 <div class="footer-links">
-                    <button onclick="alert('Terms of Use - Coming Soon')">Terms of Use</button>
-                    <button onclick="alert('Privacy Policy - Coming Soon')">Privacy Policy</button>
+                    <button onclick="window.location.href='terms.html'">Terms of Use</button>
+                    <button onclick="window.location.href='privacy.html'">Privacy Policy</button>
                 </div>
                 <div class="social-icons">
-                    <button class="social-icon" onclick="alert('LinkedIn - Coming Soon')">
+                    <button class="social-icon" onclick="window.open('https://www.linkedin.com/company/vertecz-solutions', '_blank')">
                         <i class="fab fa-linkedin"></i>
                     </button>
                     <button class="social-icon" onclick="alert('Instagram - Coming Soon')">
